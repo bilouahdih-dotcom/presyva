@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AvisReset — Reprenez le contrôle de votre réputation en ligne</title>
+<meta name="description" content="Guides pratiques d'e-réputation pour les professionnels. Guide #01 : le protocole en 5 niveaux pour faire retirer les faux avis et neutraliser les avis injustifiés.">
+<meta name="theme-color" content="#05090F">
+<link rel="canonical" href="https://avisreset.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="AvisReset — Reprenez le contrôle de votre réputation en ligne">
+<meta property="og:description" content="Guide #01 : le protocole en 5 niveaux pour faire retirer les faux avis et neutraliser les avis injustifiés.">
+<meta property="og:locale" content="fr_FR">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23155EEF'/%3E%3Cstop offset='1' stop-color='%2318C7C8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='45' font-family='Arial' font-size='38' font-weight='bold' fill='%23fff' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ══════════════════════════════════════════════════
+   AvisReset — boutique
+   DA : noir + monospace + hairlines (réf. alche.studio)
+   Couche animée : Aurora, Dot Field, Shiny Text,
+   Splash Cursor, Scramble (réf. reactbits.dev)
+   Tout est en canvas 2D / CSS natif — zéro dépendance.
+   ══════════════════════════════════════════════════ */
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+img,svg{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+
+:root{
+  --bg:#05090f;
+  --night:#081329;
+  --fg:#ffffff;
+  --fg-2:#98a2b3;
+  --fg-3:#5c6675;
+  --hair:rgba(255,255,255,.10);
+  --hair-2:rgba(255,255,255,.17);
+  --blue:#2563eb;
+  --blue-lt:#60a5fa;
+  --teal:#18c7c8;
+
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Consolas,monospace;
+  --disp:"Manrope","Aptos","Segoe UI",-apple-system,BlinkMacSystemFont,Arial,sans-serif;
+  --body:"Inter","Aptos","Segoe UI",-apple-system,BlinkMacSystemFont,Arial,sans-serif;
+
+  --maxw:1320px;
+  --gut:clamp(20px,4vw,56px);
+}
+
+body{
+  background:var(--bg);color:var(--fg-2);
+  font-family:var(--body);font-size:16px;line-height:1.7;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--blue);color:#fff}
+
+/* ─── couches de fond ─── */
+#aurora{
+  position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;
+  filter:blur(70px) saturate(135%);opacity:.85;
+}
+#grain{
+  position:fixed;inset:0;z-index:210;pointer-events:none;opacity:.036;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+/* halo qui suit le curseur */
+#glow{
+  position:fixed;top:0;left:0;width:520px;height:520px;margin:-260px 0 0 -260px;
+  border-radius:50%;z-index:1;pointer-events:none;opacity:0;
+  background:radial-gradient(circle,rgba(37,99,235,.22) 0%,rgba(24,199,200,.09) 38%,rgba(5,9,15,0) 68%);
+  transition:opacity .5s ease;will-change:transform;
+}
+body > header,body > section,body > footer,body > .marq{position:relative;z-index:2}
+
+/* ─── primitives ─── */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
+.mono{font-family:var(--mono);font-size:11.5px;font-weight:400;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--fg-3)}
+.mono-lo{font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:none;color:var(--fg-2)}
+
+h1,h2,h3,h4{font-family:var(--disp);color:var(--fg);font-weight:500;letter-spacing:-.035em;line-height:1}
+.disp-xl{font-size:clamp(3.1rem,10.5vw,9.5rem)}
+.disp-lg{font-size:clamp(2.3rem,5.6vw,4.6rem);line-height:1.02}
+.disp-md{font-size:clamp(1.6rem,3vw,2.5rem);line-height:1.06}
+p{margin:0}
+strong{color:var(--fg);font-weight:500}
+a{color:inherit;text-decoration:none}
+
+/* ─── texte dégradé + balayage brillant (Shiny Text) ─── */
+.grad{
+  background:linear-gradient(96deg,var(--blue-lt) 0%,var(--teal) 92%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  position:relative;
+}
+.shiny{position:relative;display:inline-block}
+.shiny::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(105deg,transparent 38%,rgba(255,255,255,.55) 50%,transparent 62%);
+  background-size:280% 100%;
+  -webkit-mask:linear-gradient(#000,#000);
+  mix-blend-mode:overlay;
+  animation:shine 5.5s ease-in-out infinite;
+}
+@keyframes shine{0%{background-position:220% 0}55%,100%{background-position:-120% 0}}
+
+/* ─── boutons (magnétiques) ─── */
+.btn{
+  display:inline-flex;align-items:center;gap:12px;
+  font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--fg);border:1px solid var(--hair-2);border-radius:999px;
+  padding:15px 26px;position:relative;overflow:hidden;
+  transition:color .3s ease,border-color .3s ease,transform .25s cubic-bezier(.22,1,.36,1);
+  will-change:transform;
+}
+.btn > *{position:relative;z-index:1}
+.btn::before{
+  content:"";position:absolute;inset:0;border-radius:999px;
+  background:linear-gradient(100deg,var(--blue) 0%,var(--teal) 140%);
+  transform:translateY(101%);transition:transform .4s cubic-bezier(.22,1,.36,1);
+}
+.btn:hover{border-color:transparent;color:#fff}
+.btn:hover::before{transform:translateY(0)}
+.btn .arw{width:14px;height:14px;transition:transform .3s ease}
+.btn:hover .arw{transform:translateX(4px)}
+.btn-solid{border-color:transparent;color:#fff;
+  box-shadow:0 8px 30px -8px rgba(37,99,235,.6)}
+.btn-solid::before{transform:translateY(0)}
+.btn-solid:hover::before{filter:brightness(1.15)}
+
+/* ─── tags ─── */
+.tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  color:var(--fg-2);border:1px solid #2b3340;border-radius:4px;padding:3px 10px}
+.tag-row{display:flex;flex-wrap:wrap;gap:7px}
+.tag.on{color:var(--teal);border-color:rgba(24,199,200,.4)}
+
+#prog{position:fixed;top:0;left:0;height:2px;width:100%;z-index:220;
+  transform:scaleX(0);transform-origin:0 50%;
+  background:linear-gradient(90deg,var(--blue),var(--teal))}
+
+/* ─── header ─── */
+header{position:fixed;top:0;left:0;right:0;z-index:80;
+  transition:background .35s ease,border-color .35s ease;border-bottom:1px solid transparent}
+header.stuck{background:rgba(5,9,15,.72);backdrop-filter:blur(18px);border-bottom-color:var(--hair)}
+.nav{display:flex;align-items:center;gap:34px;height:76px}
+.nav-links{display:flex;gap:30px;margin-left:auto;list-style:none}
+.nav-links a{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;color:var(--fg-2);
+  position:relative;padding:4px 0;transition:color .25s ease}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--teal);
+  transform:scaleX(0);transform-origin:100% 50%;transition:transform .34s cubic-bezier(.22,1,.36,1)}
+.nav-links a:hover{color:var(--fg)}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:0 50%}
+.nav .btn{padding:11px 20px;font-size:11px}
+@media(max-width:960px){.nav-links{display:none}.nav .btn{margin-left:auto}}
+
+.brand{display:flex;align-items:center;gap:11px}
+.brand-mark{width:30px;height:30px;border-radius:9px;flex:none;
+  background:linear-gradient(135deg,#155eef 0%,#2563eb 52%,#18c7c8 100%);
+  display:grid;place-items:center;font-family:var(--disp);font-weight:800;font-size:15px;color:#fff}
+.brand-name{font-family:var(--disp);font-size:18px;font-weight:700;letter-spacing:-.03em;color:var(--fg)}
+.brand-name em{font-style:normal;color:var(--teal)}
+
+/* ═════════ HERO ═════════ */
+.hero{padding:176px 0 0;overflow:hidden}
+#dots{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.9}
+.hero .wrap{position:relative;z-index:1}
+
+.hero-meta{display:flex;flex-wrap:wrap;gap:16px 30px;align-items:center;margin-bottom:44px}
+.hero-meta .m{display:flex;align-items:center;gap:9px}
+.hero-meta .dot{width:6px;height:6px;border-radius:50%;background:var(--teal);
+  box-shadow:0 0 0 0 rgba(24,199,200,.55);animation:pulse 2.6s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(24,199,200,0)}100%{box-shadow:0 0 0 0 rgba(24,199,200,0)}}
+
+/* révélation ligne par ligne : animation CSS pure, aucune dépendance à `load` */
+.hero h1 .ln{display:block;overflow:hidden}
+.hero h1 .ln > span{display:block;transform:translateY(104%);
+  animation:rise 1.05s cubic-bezier(.19,1,.22,1) .12s forwards}
+.hero h1 .ln:nth-child(2) > span{animation-delay:.22s}
+.hero h1 .ln:nth-child(3) > span{animation-delay:.32s}
+@keyframes rise{to{transform:translateY(0)}}
+
+.hero-bot{display:grid;grid-template-columns:1fr auto;gap:44px;align-items:end;
+  margin-top:56px;padding-bottom:70px}
+@media(max-width:820px){.hero-bot{grid-template-columns:1fr;align-items:start}}
+.hero-bot p{font-size:clamp(15px,1.35vw,18px);line-height:1.68;max-width:52ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+
+.scroller{display:flex;align-items:center;gap:12px;padding:22px 0;border-top:1px solid var(--hair)}
+.scroller .line{position:relative;flex:1;height:1px;background:var(--hair);overflow:hidden}
+.scroller .line::after{content:"";position:absolute;top:0;left:0;height:1px;width:22%;
+  background:linear-gradient(90deg,transparent,var(--teal),transparent);
+  animation:sweep 3.4s cubic-bezier(.6,.05,.35,.95) infinite}
+@keyframes sweep{0%{left:-24%}100%{left:102%}}
+
+/* ═════════ MARQUEE ═════════ */
+.marq{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);
+  overflow:hidden;padding:20px 0;background:rgba(5,9,15,.5);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+.marq-track{display:flex;width:max-content;animation:slide 34s linear infinite}
+.marq:hover .marq-track{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(-50%)}}
+.marq-track span{font-family:var(--mono);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--fg-3);padding:0 30px;display:flex;align-items:center;gap:30px;white-space:nowrap}
+.marq-track span::after{content:"";width:4px;height:4px;border-radius:50%;background:#28303c}
+
+/* ═════════ SECTIONS ═════════ */
+.sec{padding:clamp(84px,10vw,150px) 0}
+.sec + .sec,.sec.top-line{border-top:1px solid var(--hair)}
+.sec-head{display:grid;grid-template-columns:120px 1fr;gap:clamp(20px,4vw,60px);
+  margin-bottom:clamp(46px,6vw,80px)}
+@media(max-width:760px){.sec-head{grid-template-columns:1fr;gap:18px}}
+.sec-head .idx{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;color:var(--fg-3);padding-top:9px}
+.sec-head .idx b{color:var(--teal);font-weight:400}
+.sec-head h2{margin-bottom:18px}
+.sec-head .note{max-width:58ch;font-size:16px;line-height:1.72}
+
+/* ─── lignes éditoriales ─── */
+.rows{border-top:1px solid var(--hair)}
+.row{display:grid;grid-template-columns:120px 1.05fr 1.3fr;gap:clamp(16px,3vw,44px);
+  padding:26px 0;border-bottom:1px solid var(--hair);align-items:baseline;position:relative}
+@media(max-width:860px){.row{grid-template-columns:64px 1fr;row-gap:8px}.row .rdesc{grid-column:2/-1}}
+.row::before{content:"";position:absolute;left:calc(var(--gut) * -1);right:calc(var(--gut) * -1);
+  top:0;bottom:0;background:linear-gradient(90deg,rgba(37,99,235,.09),rgba(24,199,200,.03) 60%,transparent);
+  opacity:0;transition:opacity .35s ease;pointer-events:none}
+.row:hover::before{opacity:1}
+.row .rnum{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;color:var(--fg-3);transition:color .3s ease}
+.row:hover .rnum{color:var(--teal)}
+.row h3{font-size:clamp(1.05rem,1.7vw,1.42rem);font-weight:600;letter-spacing:-.025em;line-height:1.22;
+  transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.row:hover h3{transform:translateX(8px)}
+.row .rdesc{font-size:15px;line-height:1.65}
+
+/* ═════════ PRODUIT ═════════ */
+.prod{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(36px,6vw,84px);align-items:center}
+@media(max-width:980px){.prod{grid-template-columns:1fr;gap:60px}}
+.prod > *{min-width:0}
+
+/* éventail d'aperçus de pages */
+.fan{position:relative;height:clamp(420px,42vw,540px);perspective:1900px;
+  max-width:560px;margin:0 auto;width:100%}
+.pg{
+  position:absolute;top:50%;left:50%;width:min(300px,62%);aspect-ratio:1/1.414;
+  background:#fff;border-radius:4px;overflow:hidden;
+  box-shadow:0 30px 60px -18px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.07);
+  transform-origin:50% 100%;transition:transform .8s cubic-bezier(.22,1,.36,1);
+  padding:20px 18px;font-family:var(--body);color:#344054;
+}
+.pg-1{transform:translate(-50%,-50%) rotate(-12deg) translateX(-30%) scale(.9)}
+.pg-2{transform:translate(-50%,-50%) rotate(-5deg) translateX(-10%) scale(.95)}
+.pg-3{transform:translate(-50%,-50%) rotate(4deg) translateX(14%)}
+.fan:hover .pg-1{transform:translate(-50%,-50%) rotate(-16deg) translateX(-42%) scale(.9)}
+.fan:hover .pg-2{transform:translate(-50%,-50%) rotate(-7deg) translateX(-15%) scale(.95)}
+.fan:hover .pg-3{transform:translate(-50%,-50%) rotate(6deg) translateX(20%)}
+.pg .h{font-family:var(--disp);font-weight:800;color:#101828;letter-spacing:-.02em;
+  font-size:13px;line-height:1.2;margin-bottom:9px}
+.pg .k{font-family:var(--mono);font-size:6.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:#2563eb;margin-bottom:7px}
+.pg .t{font-size:7.4px;line-height:1.55;color:#475467;margin-bottom:7px}
+.pg .hr{height:1px;background:#e4e7ec;margin:9px 0}
+.pg .quote{border-left:2px solid #2563eb;background:#f8fafc;border-radius:0 4px 4px 0;
+  padding:7px 9px;font-size:7px;line-height:1.5;color:#344054;margin-bottom:7px}
+.pg .li{display:flex;gap:5px;font-size:7.2px;line-height:1.5;margin-bottom:4px;color:#475467}
+.pg .li i{font-style:normal;color:#2563eb;font-family:var(--mono);font-size:6px;flex:none;padding-top:1px}
+.pg .box{border:1px solid #e4e7ec;border-radius:5px;padding:7px 9px;background:#f8fafc}
+.pg .cell{display:grid;grid-template-columns:auto 1fr;gap:5px 8px;font-size:6.8px;line-height:1.5}
+.pg .cell b{color:#101828;font-weight:600}
+.pg .cover{position:absolute;inset:0;background:var(--night);padding:22px 20px;
+  display:flex;flex-direction:column;color:#fff}
+.pg .cover .bt{font-family:var(--disp);font-weight:800;font-size:22px;line-height:1.04;
+  letter-spacing:-.04em;margin-bottom:10px}
+.pg .cover .bt em{font-style:normal;display:block;
+  background:linear-gradient(100deg,#60a5fa,#18c7c8);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+.badge-float{position:absolute;z-index:3;font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--fg);background:rgba(8,19,41,.86);backdrop-filter:blur(8px);
+  border:1px solid var(--hair-2);border-radius:999px;padding:8px 15px}
+.badge-float.a{top:5%;right:2%}
+.badge-float.b{bottom:6%;left:0}
+.badge-float .d{color:var(--teal)}
+
+.specs{border-top:1px solid var(--hair);margin:38px 0}
+.specs .sp{display:grid;grid-template-columns:150px 1fr;gap:20px;
+  padding:15px 0;border-bottom:1px solid var(--hair);align-items:baseline}
+@media(max-width:520px){.specs .sp{grid-template-columns:104px 1fr;gap:12px}}
+.specs .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-3)}
+.specs .v{font-family:var(--disp);font-size:16px;font-weight:600;color:var(--fg);letter-spacing:-.01em}
+.specs .v small{font-family:var(--body);font-weight:400;color:var(--fg-2);font-size:14px;letter-spacing:0}
+
+.buy{display:flex;flex-wrap:wrap;align-items:center;gap:26px;margin-top:34px}
+.price{display:flex;align-items:baseline;gap:7px}
+.price .a{font-family:var(--disp);font-size:clamp(2.5rem,4.4vw,3.6rem);font-weight:500;
+  letter-spacing:-.055em;color:var(--fg);line-height:.9}
+.price .c{font-family:var(--disp);font-size:1.15rem;font-weight:500;color:var(--fg)}
+.price .n{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--fg-3);margin-left:6px}
+
+/* ─── bénéfices ─── */
+.bens{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));
+  border-top:1px solid var(--hair);border-left:1px solid var(--hair)}
+.ben{border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);
+  padding:clamp(26px,3vw,40px) clamp(22px,2.6vw,36px);position:relative;overflow:hidden;
+  transition:background .4s ease}
+.ben:hover{background:rgba(255,255,255,.022)}
+.ben::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;
+  background:linear-gradient(90deg,var(--blue),var(--teal));
+  transform:scaleX(0);transform-origin:0 50%;transition:transform .5s cubic-bezier(.22,1,.36,1)}
+.ben:hover::after{transform:scaleX(1)}
+.ben .n{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--fg-3);
+  margin-bottom:26px;display:block}
+.ben h3{font-size:1.12rem;font-weight:600;letter-spacing:-.025em;line-height:1.25;margin-bottom:11px}
+.ben p{font-size:14.5px;line-height:1.65}
+.ben:last-child{grid-column:1/-1;display:grid;grid-template-columns:1fr 1.55fr;
+  gap:clamp(18px,3vw,48px);align-items:baseline}
+.ben:last-child .n{grid-column:1/-1;margin-bottom:6px}
+@media(max-width:700px){.ben:last-child{grid-template-columns:1fr;gap:11px}}
+
+/* ─── collection ─── */
+.coll{display:grid;grid-template-columns:repeat(auto-fit,minmax(196px,1fr));
+  border-top:1px solid var(--hair);border-left:1px solid var(--hair)}
+.cc{border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);
+  padding:26px 24px 24px;display:flex;flex-direction:column;gap:12px;min-height:178px;
+  transition:background .4s ease}
+.cc:hover{background:rgba(255,255,255,.022)}
+.cc .num{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--fg-3)}
+.cc h3{font-size:1.05rem;font-weight:600;letter-spacing:-.02em;line-height:1.25;margin-bottom:auto}
+.cc.live{background:linear-gradient(160deg,rgba(37,99,235,.14),rgba(24,199,200,.05) 62%,transparent)}
+.cc.live .num{color:var(--teal)}
+
+/* ─── réassurance ─── */
+.trust{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:clamp(20px,3vw,44px)}
+.tr .ic{width:20px;height:20px;color:var(--teal);margin-bottom:18px}
+.tr h4{font-size:1rem;font-weight:600;letter-spacing:-.02em;margin-bottom:7px}
+.tr p{font-size:14px;line-height:1.62}
+
+/* ─── FAQ ─── */
+.faq{border-top:1px solid var(--hair)}
+.faq details{border-bottom:1px solid var(--hair)}
+.faq summary{list-style:none;cursor:pointer;padding:26px 56px 26px 0;position:relative;
+  display:grid;grid-template-columns:120px 1fr;gap:clamp(16px,3vw,44px);align-items:baseline;
+  transition:opacity .25s ease}
+@media(max-width:760px){.faq summary,.faq .a{grid-template-columns:64px 1fr !important}}
+.faq summary:hover{opacity:.72}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .q{font-family:var(--disp);font-size:clamp(1.02rem,1.6vw,1.28rem);
+  font-weight:600;letter-spacing:-.025em;line-height:1.3;color:var(--fg)}
+.faq summary .fnum{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;color:var(--fg-3)}
+.faq summary::after{content:"";position:absolute;right:6px;top:34px;width:12px;height:12px;
+  background:linear-gradient(var(--fg-2),var(--fg-2)) center/12px 1px no-repeat,
+             linear-gradient(var(--fg-2),var(--fg-2)) center/1px 12px no-repeat;
+  transition:background .3s ease}
+.faq details[open] summary::after{
+  background:linear-gradient(var(--teal),var(--teal)) center/12px 1px no-repeat}
+.faq .a{display:grid;grid-template-columns:120px 1fr;gap:clamp(16px,3vw,44px);padding:0 56px 30px 0}
+.faq .a .txt{font-size:15.4px;line-height:1.75;max-width:64ch}
+.faq .a .txt p + p{margin-top:14px}
+
+/* ═════════ OUTRO STICKY ═════════ */
+.outro{height:190vh;position:relative;border-top:1px solid var(--hair)}
+.outro-screen{position:sticky;top:0;height:100vh;display:grid;place-items:center;
+  text-align:center;overflow:hidden}
+.outro-screen .inner{position:relative;z-index:1;padding:0 var(--gut);max-width:820px}
+.outro h2{margin:24px auto 22px}
+.outro p{max-width:52ch;margin:0 auto 42px;font-size:16.5px}
+.outro .cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.rings{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.rings i{position:absolute;border:1px solid rgba(255,255,255,.055);border-radius:50%;
+  width:34vmax;height:34vmax;animation:ring 9s ease-in-out infinite}
+.rings i:nth-child(2){width:52vmax;height:52vmax;animation-delay:-3s}
+.rings i:nth-child(3){width:70vmax;height:70vmax;animation-delay:-6s}
+@keyframes ring{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.045);opacity:.85}}
+
+/* ─── footer ─── */
+footer{border-top:1px solid var(--hair);padding:clamp(56px,7vw,84px) 0 34px}
+.f-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:44px;margin-bottom:clamp(50px,7vw,80px)}
+@media(max-width:760px){.f-top{grid-template-columns:1fr;gap:36px}}
+.f-top .blurb{margin-top:18px;font-size:14.5px;line-height:1.7;max-width:34ch}
+footer h4{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--fg-3);font-weight:400;margin-bottom:18px}
+footer ul{list-style:none;display:grid;gap:11px}
+footer ul a{font-size:14.5px;color:var(--fg-2);transition:color .22s ease}
+footer ul a:hover{color:var(--fg)}
+.f-word{font-family:var(--disp);font-weight:500;letter-spacing:-.05em;line-height:.82;
+  font-size:clamp(3.2rem,15.5vw,15rem);color:transparent;
+  -webkit-text-stroke:1px rgba(255,255,255,.13);margin-bottom:34px;user-select:none}
+.f-bot{display:flex;flex-wrap:wrap;gap:12px 26px;justify-content:space-between;
+  padding-top:26px;border-top:1px solid var(--hair)}
+.f-bot span{font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--fg-3)}
+
+/* ─── apparition ─── */
+.rv{opacity:0;transform:translateY(26px);
+  transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1)}
+.rv.in{opacity:1;transform:none}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;
+    transition-duration:.001ms !important}
+  .rv{opacity:1;transform:none}
+  .hero h1 .ln > span{transform:none;animation:none}
+  #aurora,#dots,#glow{display:none}
+  .outro{height:auto}
+  .outro-screen{position:static;height:auto;padding:clamp(90px,12vw,150px) 0}
+}
+</style>
+</head>
+<body>
+
+<div id="prog"></div>
+<canvas id="aurora" aria-hidden="true"></canvas>
+<div id="glow" aria-hidden="true"></div>
+<div id="grain" aria-hidden="true"></div>
+
+<!-- ══════════ HEADER ══════════ -->
+<header id="hdr">
+  <div class="wrap">
+    <nav class="nav">
+      <a href="#top" class="brand" aria-label="AvisReset, accueil">
+        <span class="brand-mark" aria-hidden="true">A</span>
+        <span class="brand-name">Avis<em>Reset</em></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#methode">Méthode</a></li>
+        <li><a href="#guide">Guide #01</a></li>
+        <li><a href="#sommaire">Sommaire</a></li>
+        <li><a href="#collection">Collection</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <a href="#guide" class="btn magnet"><span>Accéder au guide</span></a>
+    </nav>
+  </div>
+</header>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero" id="top">
+  <canvas id="dots" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="hero-meta">
+      <span class="m"><span class="dot"></span><span class="mono">Guide #01 — disponible</span></span>
+      <span class="mono">Édition 2026 · France</span>
+      <span class="mono">Boutique de guides e-réputation</span>
+    </div>
+
+    <h1 class="disp-xl">
+      <span class="ln"><span>Reprenez</span></span>
+      <span class="ln"><span>le contrôle</span></span>
+      <span class="ln"><span class="grad shiny">de vos avis.</span></span>
+    </h1>
+
+    <div class="hero-bot">
+      <p>Des guides pratiques pour comprendre, gérer et contester les avis qui nuisent à votre activité. Procédures exactes, méthodes conformes, modèles prêts à l'emploi — sans aucune promesse de suppression magique.</p>
+      <div class="hero-cta">
+        <a href="#guide" class="btn btn-solid magnet"><span>Accéder au guide</span>
+          <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="#sommaire" class="btn magnet"><span>Voir le sommaire</span></a>
+      </div>
+    </div>
+
+    <div class="scroller">
+      <span class="mono">Scroll</span>
+      <span class="line"></span>
+      <span class="mono">9 chapitres · 14 modèles · 35 pages</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ MARQUEE ══════════ -->
+<div class="marq" aria-hidden="true">
+  <div class="marq-track">
+    <span>Google Business Profile</span><span>TripAdvisor</span><span>Trustpilot</span><span>Facebook</span><span>Pages Jaunes</span><span>Booking</span><span>Doctolib</span>
+    <span>Google Business Profile</span><span>TripAdvisor</span><span>Trustpilot</span><span>Facebook</span><span>Pages Jaunes</span><span>Booking</span><span>Doctolib</span>
+  </div>
+</div>
+
+<!-- ══════════ 01 · MÉTHODE ══════════ -->
+<section class="sec" id="methode">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="idx"><b>01</b> — Méthode</div>
+      <div>
+        <h2 class="disp-lg scramble">Une plateforme ne supprime pas un avis parce qu'il est négatif.</h2>
+        <p class="note">Elle le supprime parce qu'il enfreint une règle nommée, prouvée, et invoquée correctement. Tout le reste — l'indignation, l'ancienneté, l'injustice — ne compte pas. Le protocole tient en cinq niveaux, du plus léger au plus lourd.</p>
+      </div>
+    </div>
+
+    <div class="rows">
+      <div class="row rv"><div class="rnum">Niveau 00</div><h3>Diagnostic</h3><p class="rdesc">Qualifier l'avis, appliquer les 14 signaux de détection, monter le dossier de preuves. <span class="mono-lo">30 min · gratuit</span></p></div>
+      <div class="row rv"><div class="rnum">Niveau 01</div><h3>Signalement</h3><p class="rdesc">Invoquer la règle enfreinte avec la formulation en quatre blocs qui passe la modération. <span class="mono-lo">15 min · 3 j à 3 sem.</span></p></div>
+      <div class="row rv"><div class="rnum">Niveau 02</div><h3>Appel &amp; escalade</h3><p class="rdesc">Recours interne, support avec numéro de dossier, et deux canaux d'escalade ignorés de tous. <span class="mono-lo">1 h · 1 à 4 sem.</span></p></div>
+      <div class="row rv"><div class="rnum">Niveau 03</div><h3>Levier juridique</h3><p class="rdesc">Formulaire légal, recours DSA article 21, mise en demeure, signalement DGCCRF. <span class="mono-lo">0 à 400 € · 2 à 8 sem.</span></p></div>
+      <div class="row rv"><div class="rnum">Niveau 04</div><h3>Action judiciaire</h3><p class="rdesc">Référé, action au fond, plainte. Avec le calcul froid qui dit quand ça ne vaut pas le coût. <span class="mono-lo">800 à 4 000 € · 1 à 6 mois</span></p></div>
+      <div class="row rv"><div class="rnum">Niveau 05</div><h3>Neutralisation</h3><p class="rdesc">Le seul niveau qui fonctionne sur tous les avis, y compris ceux qui resteront pour toujours. <span class="mono-lo">Permanent · quasi gratuit</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 02 · RÉSULTATS ══════════ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="idx"><b>02</b> — Résultats</div>
+      <div>
+        <h2 class="disp-lg scramble">Ce que ça change concrètement.</h2>
+        <p class="note">La plupart des professionnels signalent mal, répondent trop vite, et abandonnent au premier refus. Le guide corrige les trois.</p>
+      </div>
+    </div>
+
+    <div class="bens">
+      <div class="ben rv"><span class="n">A / 05</span><h3>Trier en 60 secondes</h3><p>Les 8 motifs qui font réellement tomber un avis, et les 5 cas où vous perdez votre temps. Le tri se fait avant d'agir, pas après trois semaines.</p></div>
+      <div class="ben rv"><span class="n">B / 05</span><h3>Signaler du premier coup</h3><p>La structure en quatre blocs qui passe la modération, le motif exact à choisir, et les formulations qui condamnent un dossier.</p></div>
+      <div class="ben rv"><span class="n">C / 05</span><h3>Encaisser un refus</h3><p>Appel interne, support, recours européen DSA, mise en demeure, DGCCRF. Chaque niveau avec son coût réel et son délai réel.</p></div>
+      <div class="ben rv"><span class="n">D / 05</span><h3>Répondre sans aggraver</h3><p>La méthode R.A.R.E. et onze réponses modèles. Un avis négatif bien traité rassure davantage qu'une fiche parfaite à cinq étoiles.</p></div>
+      <div class="ben rv"><span class="n">E / 05</span><h3>Enterrer le reste</h3><p>Le système de collecte régulière et conforme qui rend un avis à une étoile mathématiquement invisible en quelques semaines.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 03 · PRODUIT ══════════ -->
+<section class="sec" id="guide">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="idx"><b>03</b> — Produit</div>
+      <div>
+        <h2 class="disp-lg scramble">Guide #01 — Gérer les avis négatifs.</h2>
+        <p class="note">Le protocole complet, du diagnostic d'un faux avis jusqu'au recours juridique. Et ce qu'on fait, très concrètement, quand l'avis reste en ligne.</p>
+      </div>
+    </div>
+
+    <div class="prod">
+      <div class="fan rv">
+        <span class="badge-float a"><span class="d">●</span> 35 pages</span>
+        <span class="badge-float b">Aperçu de l'intérieur</span>
+
+        <!-- page : annexe modèles -->
+        <div class="pg pg-1">
+          <div class="k">Annexe A</div>
+          <div class="h">11 réponses prêtes à copier</div>
+          <div class="quote">Bonjour, nous avons vérifié l'ensemble de nos réservations sur la période indiquée sans retrouver de passage correspondant.</div>
+          <div class="quote">Bonjour, vous avez raison, 40 minutes d'attente n'est pas acceptable et je le regrette.</div>
+          <div class="hr"></div>
+          <div class="li"><i>07</i><span>Insulte ou agressivité</span></div>
+          <div class="li"><i>08</i><span>Une étoile sans commentaire</span></div>
+          <div class="li"><i>09</i><span>Reproche hors de votre contrôle</span></div>
+        </div>
+
+        <!-- page : chapitre 2 -->
+        <div class="pg pg-2">
+          <div class="k">Chapitre 2</div>
+          <div class="h">Diagnostiquer un faux avis</div>
+          <div class="t">Aucun signal ne suffit isolément. Trois signaux ou plus sur le même avis, et vous avez un dossier sérieux.</div>
+          <div class="li"><i>01</i><span>Le profil est vide</span></div>
+          <div class="li"><i>02</i><span>Un seul avis dans l'historique</span></div>
+          <div class="li"><i>03</i><span>Des avis à l'autre bout du pays</span></div>
+          <div class="li"><i>04</i><span>Une grappe temporelle</span></div>
+          <div class="li"><i>05</i><span>Aucun détail vérifiable</span></div>
+          <div class="hr"></div>
+          <div class="box"><div class="cell"><b>Preuve</b><span>Export de caisse daté</span><b>Délai</b><span>3 j à 3 sem.</span></div></div>
+        </div>
+
+        <!-- couverture -->
+        <div class="pg pg-3">
+          <div class="cover">
+            <div style="font-family:var(--mono);font-size:7px;letter-spacing:.2em;text-transform:uppercase;color:#9ec2ff;border:1px solid rgba(158,194,255,.34);border-radius:99px;padding:3px 9px;align-self:flex-start;margin-bottom:auto">Guide #01</div>
+            <div style="font-size:11px;letter-spacing:.14em;color:#22304c;margin-bottom:9px"><b style="color:#18c7c8;font-weight:400">★</b>★★★★</div>
+            <div class="bt">Gérer<br>les avis<em>négatifs.</em></div>
+            <div style="width:30px;height:2px;border-radius:2px;background:linear-gradient(90deg,#155eef,#18c7c8);margin-bottom:10px"></div>
+            <div style="font-size:7.5px;line-height:1.5;color:#a9b6cc">Le protocole en 5 niveaux pour faire retirer les faux avis, contester les avis abusifs et neutraliser ceux qui resteront en ligne.</div>
+            <div style="font-family:var(--mono);font-size:5.5px;letter-spacing:.14em;text-transform:uppercase;color:#5a6b87;line-height:2;margin-top:12px">Google · TripAdvisor · Trustpilot<br>Facebook · Pages Jaunes · Booking</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rv">
+        <div class="tag-row" style="margin-bottom:26px">
+          <span class="tag">guide_digital</span>
+          <span class="tag on">accès_immédiat</span>
+          <span class="tag">mises_à_jour_incluses</span>
+          <span class="tag">pdf_a4</span>
+        </div>
+
+        <h3 class="disp-md">Tout le protocole,<br>dans un seul fichier.</h3>
+
+        <div class="specs">
+          <div class="sp"><div class="k">Format</div><div class="v">PDF A4 · 35 pages</div></div>
+          <div class="sp"><div class="k">Structure</div><div class="v">9 chapitres <small>+ 3 annexes</small></div></div>
+          <div class="sp"><div class="k">Modèles</div><div class="v">14 <small>réponses, courriers, tableaux</small></div></div>
+          <div class="sp"><div class="k">Plateformes</div><div class="v">7 <small>Google, TripAdvisor, Trustpilot…</small></div></div>
+          <div class="sp"><div class="k">Pour qui</div><div class="v"><small>Restaurants, commerces, artisans, salons, garages, professions libérales, hôtels — et les agences qui gèrent la réputation de leurs clients.</small></div></div>
+        </div>
+
+        <div class="buy">
+          <div class="price">
+            <span class="a">49,99</span><span class="c">€</span>
+            <span class="n">TTC · paiement unique</span>
+          </div>
+          <!-- Remplacer par le lien de checkout Lemon Squeezy -->
+          <a href="#" class="btn btn-solid magnet" data-checkout><span>Accéder au guide</span>
+            <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+        <p class="mono" style="margin-top:20px">Lien de téléchargement envoyé par e-mail dès le paiement validé — aucun abonnement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 04 · SOMMAIRE ══════════ -->
+<section class="sec" id="sommaire">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="idx"><b>04</b> — Sommaire</div>
+      <div>
+        <h2 class="disp-lg scramble">Ce que vous allez apprendre.</h2>
+        <p class="note">Neuf chapitres, du diagnostic à la prévention. Chacun se lit en dix minutes et s'applique le jour même.</p>
+      </div>
+    </div>
+
+    <div class="rows">
+      <div class="row rv"><div class="rnum">Ch. 01</div><h3>La règle du jeu</h3><p class="rdesc">Ce qui est supprimable, ce qui ne le sera jamais, et le test des 60 secondes à faire avant d'agir.</p></div>
+      <div class="row rv"><div class="rnum">Ch. 02</div><h3>Diagnostiquer un faux avis</h3><p class="rdesc">Les 14 signaux de détection et la constitution d'un dossier de preuves qui tient devant un modérateur.</p></div>
+      <div class="row rv"><div class="rnum">Ch. 03</div><h3>Niveau 1 — Le signalement</h3><p class="rdesc">La procédure Google exacte, l'outil de gestion des avis, la formulation en 4 blocs et les 3 erreurs qui tuent un dossier.</p></div>
+      <div class="row rv"><div class="rnum">Ch. 04</div><h3>Niveau 2 — L'appel</h3><p class="rdesc">Le recours interne, le support, et les deux canaux d'escalade que presque personne n'utilise.</p></div>
+      <div class="row rv"><div class="rnum">Ch. 05</div><h3>Niveau 3 — Le juridique</h3><p class="rdesc">Qualification, formulaire légal, recours DSA article 21, mise en demeure, DGCCRF, référé — et le calcul du coût.</p></div>
+      <div class="row rv"><div class="rnum">Ch. 06</div><h3>Les autres plateformes</h3><p class="rdesc">TripAdvisor, Trustpilot, Facebook, Pages Jaunes, Booking, Doctolib : les angles propres à chacune.</p></div>
+      <div class="row rv"><div class="rnum">Ch. 07</div><h3>L'avis qui restera</h3><p class="rdesc">La méthode R.A.R.E. pour transformer un avis négatif en argument de vente, et ce qu'il ne faut jamais écrire.</p></div>
+      <div class="row rv"><div class="rnum">Ch. 08</div><h3>Enterrer</h3><p class="rdesc">L'arithmétique du volume et la collecte conforme qui rend un mauvais avis statistiquement invisible.</p></div>
+      <div class="row rv"><div class="rnum">Ch. 09</div><h3>Ne plus jamais en reprendre</h3><p class="rdesc">Le système de prévention et de veille : intercepter l'insatisfaction avant qu'elle devienne publique.</p></div>
+      <div class="row rv"><div class="rnum">Annexes</div><h3>Les modèles prêts à l'emploi</h3><p class="rdesc">11 réponses publiques, 3 courriers juridiques, le tableau de suivi des signalements, la checklist des 30 premiers jours.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 05 · COLLECTION ══════════ -->
+<section class="sec" id="collection">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="idx"><b>05</b> — Collection</div>
+      <div>
+        <h2 class="disp-lg scramble">Une gamme, pas un PDF isolé.</h2>
+        <p class="note">AvisReset publie une collection de guides sur l'e-réputation et la visibilité locale. Chaque acheteur est prévenu en avant-première des sorties suivantes.</p>
+      </div>
+    </div>
+
+    <div class="coll">
+      <div class="cc live rv"><span class="num">Guide #01</span><h3>Gérer les avis négatifs</h3><span class="tag on">disponible</span></div>
+      <div class="cc rv"><span class="num">Guide #02</span><h3>Google Business Profile</h3><span class="tag">en_préparation</span></div>
+      <div class="cc rv"><span class="num">Guide #03</span><h3>Réputation locale</h3><span class="tag">en_préparation</span></div>
+      <div class="cc rv"><span class="num">Guide #04</span><h3>Répondre aux avis clients</h3><span class="tag">en_préparation</span></div>
+      <div class="cc rv"><span class="num">Guide #05</span><h3>SEO local</h3><span class="tag">en_préparation</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 06 · ACHAT ══════════ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="idx"><b>06</b> — Achat</div>
+      <div><h2 class="disp-lg scramble">Comment ça se passe.</h2></div>
+    </div>
+
+    <div class="trust">
+      <div class="tr rv">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <h4>Paiement sécurisé</h4>
+        <p>Transaction chiffrée, traitée par un prestataire spécialisé. Aucune donnée bancaire ne transite par ce site.</p>
+      </div>
+      <div class="tr rv">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h8l-1 8 10-12h-8z"/></svg>
+        <h4>Accès immédiat</h4>
+        <p>Le lien de téléchargement part par e-mail dès la validation du paiement. Pas de délai, pas d'attente.</p>
+      </div>
+      <div class="tr rv">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        <h4>Mobile, ordinateur, papier</h4>
+        <p>PDF A4 lisible partout, et mis en page pour rester lisible une fois imprimé.</p>
+      </div>
+      <div class="tr rv">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.5 15a9 9 0 1 1-2.1-9.4L23 10"/></svg>
+        <h4>Mises à jour incluses</h4>
+        <p>Les plateformes changent leurs règles. Vous recevez les nouvelles versions, sans surcoût.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 07 · FAQ ══════════ -->
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="idx"><b>07</b> — FAQ</div>
+      <div><h2 class="disp-lg scramble">Les questions qui reviennent.</h2></div>
+    </div>
+
+    <div class="faq">
+      <details class="rv" open>
+        <summary><span class="fnum">Q / 01</span><span class="q">Ce guide garantit-il la suppression de mes avis ?</span></summary>
+        <div class="a"><span></span><div class="txt">
+          <p>Non, et personne ne peut le garantir honnêtement. Une plateforme ne supprime pas un avis parce qu'il est négatif — uniquement s'il enfreint une de ses règles ou la loi.</p>
+          <p>Ce que le guide apporte : identifier les avis qui relèvent réellement d'un motif de suppression, monter un dossier qui passe la modération, connaître tous les recours quand elle refuse, et neutraliser efficacement ceux qui resteront en ligne.</p>
+        </div></div>
+      </details>
+      <details class="rv">
+        <summary><span class="fnum">Q / 02</span><span class="q">Les méthodes décrites sont-elles légales ?</span></summary>
+        <div class="a"><span></span><div class="txt">
+          <p>Oui, exclusivement. Le guide couvre le signalement pour infraction au règlement, les voies de recours, les procédures juridiques françaises et européennes, la réponse publique et la collecte d'avis conforme.</p>
+          <p>Il exclut explicitement l'achat de faux avis et toute manipulation : ce sont des pratiques commerciales trompeuses lourdement sanctionnées, qui exposent en plus votre fiche à une suppression pure et simple.</p>
+        </div></div>
+      </details>
+      <details class="rv">
+        <summary><span class="fnum">Q / 03</span><span class="q">Quel est le format et comment y accéder ?</span></summary>
+        <div class="a"><span></span><div class="txt">
+          <p>Un PDF de 35 pages au format A4, lisible sur téléphone, tablette et ordinateur, et conçu pour être imprimé. Le lien de téléchargement est envoyé par e-mail immédiatement après le paiement.</p>
+        </div></div>
+      </details>
+      <details class="rv">
+        <summary><span class="fnum">Q / 04</span><span class="q">Quelles plateformes sont couvertes ?</span></summary>
+        <div class="a"><span></span><div class="txt">
+          <p>Google Business Profile en priorité — c'est là que se joue l'essentiel — puis TripAdvisor, Trustpilot, Facebook et Pages Jaunes, ainsi que les plateformes à transaction comme Booking, Airbnb et Doctolib, qui obéissent à une logique différente et offrent d'autres leviers.</p>
+        </div></div>
+      </details>
+      <details class="rv">
+        <summary><span class="fnum">Q / 05</span><span class="q">Je suis une agence. Puis-je m'en servir pour mes clients ?</span></summary>
+        <div class="a"><span></span><div class="txt">
+          <p>Oui, pour votre usage professionnel interne et pour les prestations que vous réalisez pour vos clients. La revente, la redistribution et la diffusion publique du fichier restent interdites. Pour une licence multi-collaborateurs, écrivez-nous.</p>
+        </div></div>
+      </details>
+      <details class="rv">
+        <summary><span class="fnum">Q / 06</span><span class="q">Y a-t-il des mises à jour ?</span></summary>
+        <div class="a"><span></span><div class="txt">
+          <p>Oui, et elles sont incluses. Les interfaces et les règles des plateformes évoluent régulièrement : chaque nouvelle version est envoyée à l'adresse e-mail utilisée lors de l'achat.</p>
+        </div></div>
+      </details>
+      <details class="rv">
+        <summary><span class="fnum">Q / 07</span><span class="q">Puis-je être remboursé ?</span></summary>
+        <div class="a"><span></span><div class="txt">
+          <p>Il s'agit d'un contenu numérique fourni immédiatement : en validant votre commande, vous acceptez l'exécution immédiate et renoncez au droit de rétractation de 14 jours (article L221-28 du Code de la consommation).</p>
+          <p>Cela dit, si le guide ne correspond pas du tout à ce que vous attendiez, écrivez-nous en expliquant pourquoi. Chaque demande est examinée.</p>
+        </div></div>
+      </details>
+      <details class="rv">
+        <summary><span class="fnum">Q / 08</span><span class="q">Ce guide remplace-t-il un avocat ?</span></summary>
+        <div class="a"><span></span><div class="txt">
+          <p>Non. Le chapitre juridique est informatif : il vous permet de comprendre les qualifications, les délais de prescription et les recours possibles, et d'arriver préparé chez un professionnel. Il ne constitue pas un conseil juridique personnalisé.</p>
+        </div></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ OUTRO STICKY ══════════ -->
+<section class="outro">
+  <div class="outro-screen">
+    <div class="rings" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="inner">
+      <span class="mono">Guide #01 · 49,99 € · accès immédiat</span>
+      <h2 class="disp-lg">Reprenez le contrôle de <span class="grad shiny">votre réputation.</span></h2>
+      <p>35 pages, 9 chapitres, 14 modèles prêts à l'emploi. Le premier signalement bien construit se prépare en quarante minutes.</p>
+      <div class="cta">
+        <!-- Remplacer par le lien de checkout Lemon Squeezy -->
+        <a href="#" class="btn btn-solid magnet" data-checkout><span>Accéder au guide</span>
+          <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="#sommaire" class="btn magnet"><span>Voir le sommaire</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div>
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">A</span>
+          <span class="brand-name">Avis<em>Reset</em></span>
+        </div>
+        <p class="blurb">Guides pratiques d'e-réputation pour les professionnels. Comprendre, gérer et protéger votre image en ligne.</p>
+      </div>
+      <div>
+        <h4>Boutique</h4>
+        <ul>
+          <li><a href="#guide">Guide #01</a></li>
+          <li><a href="#sommaire">Sommaire</a></li>
+          <li><a href="#collection">Collection</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Informations</h4>
+        <ul>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+          <li><a href="cgv.html">CGV</a></li>
+          <li><a href="confidentialite.html">Confidentialité</a></li>
+          <li><a href="mailto:contact@avisreset.com">contact@avisreset.com</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="f-word" aria-hidden="true">AvisReset</div>
+
+    <div class="f-bot">
+      <span>© 2026 AvisReset</span>
+      <span>Reprenez le contrôle de votre réputation</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+'use strict';
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const coarse = matchMedia('(pointer: coarse)').matches;
+
+/* ─────────── Aurora : bandes de dégradé en mouvement ───────────
+   Quatre blobs sur des trajectoires de Lissajous, floutés en CSS.
+   Coût quasi nul : 4 arcs par frame, DPR bridé à 1. */
+if (!reduce) {
+  const cv = document.getElementById('aurora');
+  const ctx = cv.getContext('2d', {alpha:true});
+  const BLOBS = [
+    {c:[37,99,235],  r:.55, ax:.30, ay:.20, sx:.00021, sy:.00014, px:0,   py:1.7, a:.55},
+    {c:[24,199,200], r:.42, ax:.26, ay:.24, sx:.00017, sy:.00023, px:2.1, py:.4,  a:.34},
+    {c:[96,165,250], r:.36, ax:.22, ay:.17, sx:.00029, sy:.00019, px:4.2, py:2.9, a:.26},
+    {c:[21,94,239],  r:.50, ax:.18, ay:.26, sx:.00013, sy:.00027, px:1.2, py:5.1, a:.30}
+  ];
+  let W = 0, H = 0, raf = 0;
+  const size = () => {
+    W = cv.width  = Math.round(innerWidth  * .5);
+    H = cv.height = Math.round(innerHeight * .5);
+  };
+  const draw = (t) => {
+    ctx.clearRect(0, 0, W, H);
+    ctx.globalCompositeOperation = 'lighter';
+    for (const b of BLOBS) {
+      const x = W * (.5 + b.ax * Math.sin(t * b.sx + b.px));
+      const y = H * (.5 + b.ay * Math.cos(t * b.sy + b.py));
+      const r = Math.min(W, H) * b.r;
+      const g = ctx.createRadialGradient(x, y, 0, x, y, r);
+      g.addColorStop(0,   `rgba(${b.c[0]},${b.c[1]},${b.c[2]},${b.a})`);
+      g.addColorStop(.55, `rgba(${b.c[0]},${b.c[1]},${b.c[2]},${b.a * .22})`);
+      g.addColorStop(1,   `rgba(${b.c[0]},${b.c[1]},${b.c[2]},0)`);
+      ctx.fillStyle = g;
+      ctx.beginPath(); ctx.arc(x, y, r, 0, 6.2832); ctx.fill();
+    }
+    raf = requestAnimationFrame(draw);
+  };
+  size(); addEventListener('resize', size, {passive:true});
+  raf = requestAnimationFrame(draw);
+  document.addEventListener('visibilitychange', () => {
+    cancelAnimationFrame(raf);
+    if (!document.hidden) raf = requestAnimationFrame(draw);
+  });
+}
+
+/* ─────────── Dot Field : grille de points réactive au curseur ─────────── */
+if (!reduce && !coarse) {
+  const cv = document.getElementById('dots');
+  const ctx = cv.getContext('2d');
+  const hero = document.querySelector('.hero');
+  const GAP = 30, R = 150;
+  let W = 0, H = 0, dpr = 1, pts = [], mx = -9999, my = -9999, raf = 0, live = true;
+
+  const build = () => {
+    dpr = Math.min(devicePixelRatio || 1, 1.5);
+    const b = hero.getBoundingClientRect();
+    W = b.width; H = b.height;
+    cv.width = W * dpr; cv.height = H * dpr;
+    cv.style.width = W + 'px'; cv.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    pts = [];
+    for (let y = GAP; y < H; y += GAP)
+      for (let x = GAP; x < W; x += GAP) pts.push({x, y});
+  };
+  const draw = () => {
+    ctx.clearRect(0, 0, W, H);
+    for (const p of pts) {
+      const dx = p.x - mx, dy = p.y - my;
+      const d2 = dx*dx + dy*dy;
+      let s = 1, al = .1, near = 0;
+      if (d2 < R*R) {
+        near = 1 - Math.sqrt(d2) / R;
+        s  = 1 + near * 2.1;
+        al = .1 + near * .55;
+      }
+      const off = near * 5;
+      const len = Math.max(Math.hypot(dx, dy), .001);
+      ctx.beginPath();
+      ctx.arc(p.x + (dx/len) * off, p.y + (dy/len) * off, s, 0, 6.2832);
+      ctx.fillStyle = near > .35
+        ? `rgba(24,199,200,${al})`
+        : `rgba(255,255,255,${al})`;
+      ctx.fill();
+    }
+    raf = requestAnimationFrame(draw);
+  };
+  build();
+  addEventListener('resize', build, {passive:true});
+  addEventListener('mousemove', (e) => {
+    const b = hero.getBoundingClientRect();
+    mx = e.clientX - b.left; my = e.clientY - b.top;
+  }, {passive:true});
+  raf = requestAnimationFrame(draw);
+  // on coupe la boucle dès que le hero est hors champ
+  new IntersectionObserver(([e]) => {
+    if (e.isIntersecting && !live) { live = true; raf = requestAnimationFrame(draw); }
+    else if (!e.isIntersecting && live) { live = false; cancelAnimationFrame(raf); }
+  }).observe(hero);
+}
+
+/* ─────────── Halo curseur ─────────── */
+if (!reduce && !coarse) {
+  const g = document.getElementById('glow');
+  let tx = innerWidth/2, ty = innerHeight/2, cx = tx, cy = ty, on = false;
+  addEventListener('mousemove', (e) => {
+    tx = e.clientX; ty = e.clientY;
+    if (!on) { on = true; g.style.opacity = '1'; }
+  }, {passive:true});
+  (function loop(){
+    cx += (tx - cx) * .085; cy += (ty - cy) * .085;
+    g.style.transform = `translate3d(${cx}px,${cy}px,0)`;
+    requestAnimationFrame(loop);
+  })();
+}
+
+/* ─────────── Boutons magnétiques ─────────── */
+if (!reduce && !coarse) {
+  document.querySelectorAll('.magnet').forEach(el => {
+    el.addEventListener('mousemove', (e) => {
+      const b = el.getBoundingClientRect();
+      const x = (e.clientX - b.left - b.width/2)  * .28;
+      const y = (e.clientY - b.top  - b.height/2) * .38;
+      el.style.transform = `translate(${x}px,${y}px)`;
+    });
+    el.addEventListener('mouseleave', () => { el.style.transform = ''; });
+  });
+}
+
+/* ─────────── Scramble : les titres se décodent à l'entrée ─────────── */
+const CH = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#@%&/*';
+function scramble(el) {
+  const final = el.textContent;
+  const n = final.length;
+  // le texte réel reste exposé aux lecteurs d'écran pendant le décodage
+  el.setAttribute('aria-label', final);
+  // verrouillage de gauche à droite, ~0,6 s quelle que soit la longueur
+  const per = Math.min(0.35, 24 / Math.max(n, 1));
+  const total = 14 + n * per;
+  let frame = 0;
+  const tick = () => {
+    let out = '';
+    for (let i = 0; i < n; i++) {
+      const c = final[i];
+      if (c === ' ' || c === '\n') { out += c; continue; }
+      out += (frame > i * per + 6) ? c : CH[(Math.random() * CH.length) | 0];
+    }
+    el.textContent = out;
+    if (frame++ < total) requestAnimationFrame(tick);
+    else { el.textContent = final; el.removeAttribute('aria-label'); }
+  };
+  tick();
+}
+
+/* ─────────── Apparition + déclenchement du scramble ─────────── */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (!e.isIntersecting) return;
+    e.target.style.transitionDelay = Math.min(i * 60, 260) + 'ms';
+    e.target.classList.add('in');
+    if (!reduce) {
+      const t = e.target.querySelector('.scramble');
+      if (t && !t.dataset.done) { t.dataset.done = '1'; scramble(t); }
+    }
+    io.unobserve(e.target);
+  });
+}, {rootMargin:'0px 0px -10% 0px', threshold:0.06});
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+/* ─────────── Barre de progression + header ─────────── */
+const prog = document.getElementById('prog'), hdr = document.getElementById('hdr');
+let ticking = false;
+const frame = () => {
+  const h = document.documentElement.scrollHeight - innerHeight;
+  prog.style.transform = 'scaleX(' + (h > 0 ? scrollY / h : 0) + ')';
+  hdr.classList.toggle('stuck', scrollY > 24);
+  ticking = false;
+};
+addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }, {passive:true});
+frame();
+
+/* ─────────── FAQ : une seule réponse ouverte ─────────── */
+const dets = document.querySelectorAll('.faq details');
+dets.forEach(d => d.addEventListener('toggle', () => {
+  if (d.open) dets.forEach(o => { if (o !== d) o.open = false; });
+}));
+
+/* ─────────── Ancres ─────────── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', (e) => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (!t) return;
+    e.preventDefault();
+    t.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block: 'start'});
+  });
+});
+
+/* ─────────── Garde-fou : checkout non configuré ─────────── */
+document.querySelectorAll('[data-checkout]').forEach(a => {
+  a.addEventListener('click', (e) => {
+    if (a.getAttribute('href') === '#') {
+      e.preventDefault();
+      alert("Lien de paiement pas encore configuré.\n\nRemplacez href=\"#\" par l'URL de checkout Lemon Squeezy sur les liens data-checkout.");
+    }
+  });
+});
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>AvisReset — visuels produit</title>
+<!--
+  Générateur de visuels produit (1600 × 1200) pour la fiche boutique.
+  Ouvrir avec un hash : mockup.html#s1 , #s2 , #s3
+  Capture : chrome --headless=new --window-size=1600,1200 --screenshot=... "file:///...mockup.html#s1"
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#2563eb;--blue-hover:#155eef;--night:#081329;--teal:#18c7c8;
+  --grey-bg:#f5f7fa;--grey-text:#667085;--ink:#101828;--line:#e4e7ec;
+  --head:"Manrope",Arial,sans-serif;--body:"Inter",Arial,sans-serif;
+  --mono:"IBM Plex Mono",Consolas,monospace;
+  --hair:rgba(255,255,255,.10);
+}
+html,body{width:1600px;height:1200px;overflow:hidden}
+body{font-family:var(--body);color:var(--grey-text);background:#fff}
+
+.scene{display:none;width:1600px;height:1200px;position:relative;overflow:hidden}
+.scene:target{display:flex}
+/* grain : casse le banding des grands dégradés (élément réel — les ::after des scènes sont déjà pris) */
+.grain{
+  position:absolute;inset:0;z-index:9;pointer-events:none;opacity:.034;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+/* les scènes déclarent `#sX > * {position:relative}` : on repasse devant en spécificité */
+#s1 > .grain,#s2 > .grain,#s3 > .grain{position:absolute;inset:0;z-index:9}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{width:42px;height:42px;border-radius:12px;flex:none;
+  background:linear-gradient(135deg,#155eef 0%,#2563eb 55%,#18c7c8 100%);
+  display:grid;place-items:center;font-family:var(--head);font-weight:800;font-size:1.3rem;color:#fff}
+.brand-name{font-family:var(--head);font-size:1.5rem;font-weight:800;color:var(--ink);letter-spacing:-.02em}
+.brand-name em{font-style:normal;color:var(--blue)}
+.brand.dark .brand-name{color:#fff}
+.brand.dark .brand-name em{color:var(--teal)}
+
+/* ── livre 3D ── */
+.stage{perspective:2200px;display:grid;place-items:center}
+.book{position:relative;width:400px;aspect-ratio:1/1.414;transform-style:preserve-3d;
+  transform:rotateY(-22deg) rotateX(5deg) rotateZ(-1.5deg);
+  filter:drop-shadow(0 46px 58px rgba(8,19,41,.3))}
+.book.flat{transform:rotateY(-9deg) rotateX(2deg)}
+.book-cover{position:absolute;inset:0;border-radius:5px 12px 12px 5px;overflow:hidden;
+  background:var(--night);color:#fff;padding:32px 30px;display:flex;flex-direction:column}
+.book-cover::before{content:"";position:absolute;top:-40%;right:-45%;width:110%;height:110%;border-radius:50%;
+  background:radial-gradient(circle,rgba(37,99,235,.62) 0%,rgba(21,94,239,.18) 42%,rgba(8,19,41,0) 70%)}
+.book-cover::after{content:"";position:absolute;bottom:-45%;left:-40%;width:105%;height:105%;border-radius:50%;
+  background:radial-gradient(circle,rgba(24,199,200,.3) 0%,rgba(24,199,200,0) 66%)}
+.book-cover > *{position:relative;z-index:1}
+.book-spine{position:absolute;left:0;top:0;bottom:0;width:30px;
+  transform-origin:left center;transform:rotateY(90deg);
+  background:linear-gradient(90deg,#020814 0%,#0b1c3c 42%,#061127 100%);border-radius:4px 0 0 4px}
+.fold{position:absolute;left:0;top:0;bottom:0;width:17px;z-index:3;
+  background:linear-gradient(90deg,rgba(0,0,0,.5) 0%,rgba(255,255,255,.07) 62%,rgba(0,0,0,0) 100%)}
+.bc-brand{display:flex;align-items:center;gap:8px;margin-bottom:auto}
+.bc-mark{width:25px;height:25px;border-radius:7px;flex:none;
+  background:linear-gradient(135deg,#155eef,#18c7c8);display:grid;place-items:center;
+  font-family:var(--head);font-weight:800;font-size:.75rem;color:#fff}
+.bc-name{font-family:var(--head);font-weight:800;font-size:1rem;letter-spacing:-.02em}
+.bc-name em{font-style:normal;color:var(--teal)}
+.bc-badge{align-self:flex-start;font-family:var(--head);font-size:.63rem;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;color:#9ec2ff;
+  border:1px solid rgba(158,194,255,.36);border-radius:999px;padding:5px 13px;margin-bottom:19px}
+.bc-stars{font-size:1.15rem;letter-spacing:.14em;color:#22304c;margin-bottom:13px}
+.bc-stars b{color:var(--teal);font-weight:400}
+.bc-title{font-family:var(--head);font-weight:800;font-size:2.25rem;line-height:1.05;
+  letter-spacing:-.035em;color:#fff;margin-bottom:17px}
+.bc-title em{font-style:normal;display:block;
+  background:linear-gradient(100deg,#60a5fa,#18c7c8);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.bc-rule{width:46px;height:4px;border-radius:4px;background:linear-gradient(90deg,#155eef,#18c7c8);margin-bottom:15px}
+.bc-sub{font-size:.8rem;line-height:1.5;color:#a9b6cc;margin-bottom:17px}
+.bc-foot{font-family:var(--head);font-size:.6rem;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:#6b7e9e;line-height:1.9}
+
+/* ── S1 : plan produit ── */
+#s1{background:#05090f;align-items:center;padding:0 110px;gap:90px;color:#98a2b3}
+#s1::before{content:"";position:absolute;top:-38%;right:-16%;width:88%;height:190%;border-radius:50%;
+  background:radial-gradient(circle,rgba(37,99,235,.34) 0%,rgba(37,99,235,.13) 34%,rgba(37,99,235,.03) 58%,rgba(5,9,15,0) 76%)}
+#s1::after{content:"";position:absolute;bottom:-58%;left:-18%;width:74%;height:170%;border-radius:50%;
+  background:radial-gradient(circle,rgba(24,199,200,.2) 0%,rgba(24,199,200,.05) 42%,rgba(5,9,15,0) 70%)}
+#s1 > *{position:relative;z-index:1}
+#s1 .txt{flex:1}
+#s1 .brand .brand-name{color:#fff}
+#s1 .brand .brand-name em{color:var(--teal)}
+.pill{display:inline-flex;align-items:center;gap:11px;font-family:var(--mono);font-size:.8rem;
+  letter-spacing:.14em;text-transform:uppercase;color:#98a2b3;
+  border:1px solid rgba(255,255,255,.16);background:transparent;
+  padding:9px 20px 9px 16px;border-radius:999px;margin-bottom:30px}
+.pill .dot{width:8px;height:8px;border-radius:50%;background:var(--teal)}
+#s1 h1{font-family:var(--head);font-size:4.6rem;font-weight:500;letter-spacing:-.045em;
+  line-height:1;color:#fff;margin-bottom:28px}
+#s1 h1 em{font-style:normal;background:linear-gradient(96deg,#60a5fa,var(--teal));
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+#s1 p{font-size:1.28rem;line-height:1.6;max-width:620px;margin-bottom:42px;color:#98a2b3}
+.tags{display:flex;gap:10px;flex-wrap:wrap}
+.tag{font-family:var(--mono);font-size:.82rem;letter-spacing:.05em;color:#98a2b3;
+  background:transparent;border:1px solid #2b3340;border-radius:5px;padding:7px 15px}
+
+/* ── S2 : specs ── */
+#s2{background:var(--night);align-items:center;padding:0 110px;gap:90px;color:#a9b6cc}
+#s2::before{content:"";position:absolute;top:-45%;right:-25%;width:95%;height:200%;border-radius:50%;
+  background:radial-gradient(circle,rgba(37,99,235,.42) 0%,rgba(37,99,235,.2) 34%,rgba(37,99,235,.06) 58%,rgba(37,99,235,0) 76%)}
+#s2::after{content:"";position:absolute;bottom:-55%;left:-10%;width:52%;height:160%;border-radius:50%;
+  background:radial-gradient(circle,rgba(24,199,200,.22) 0%,rgba(24,199,200,0) 64%)}
+#s2 > *{position:relative;z-index:1}
+#s2 .txt{flex:1}
+#s2 h2{font-family:var(--head);font-size:3.5rem;font-weight:500;letter-spacing:-.045em;
+  line-height:1.04;color:#fff;margin:26px 0 40px}
+.specs{display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:640px;
+  border-top:1px solid var(--hair);border-left:1px solid var(--hair)}
+.sp{border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:24px 26px}
+.sp .v{font-family:var(--head);font-size:2.3rem;font-weight:500;color:#fff;letter-spacing:-.05em;line-height:1}
+.sp .k{font-family:var(--mono);font-size:.76rem;font-weight:400;letter-spacing:.16em;
+  text-transform:uppercase;color:#5c6675;margin-top:10px}
+.sp.accent .v{background:linear-gradient(100deg,#60a5fa,#18c7c8);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ── S3 : contenu ── */
+#s3{background:#05090f;flex-direction:column;justify-content:center;padding:0 110px;color:#98a2b3}
+#s3::before{content:"";position:absolute;top:-52%;left:38%;width:70%;height:190%;border-radius:50%;
+  background:radial-gradient(circle,rgba(37,99,235,.2) 0%,rgba(24,199,200,.05) 40%,rgba(5,9,15,0) 70%)}
+#s3 > *{position:relative;z-index:1}
+#s3 .brand .brand-name{color:#fff}
+#s3 .brand .brand-name em{color:var(--teal)}
+#s3 .head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:44px}
+#s3 h2{font-family:var(--head);font-size:3.2rem;font-weight:500;letter-spacing:-.045em;
+  color:#fff;line-height:1.04;margin-top:24px}
+#s3 .side{text-align:right;font-family:var(--mono);font-size:.82rem;letter-spacing:.14em;
+  text-transform:uppercase;color:#5c6675}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--hair);border-left:1px solid var(--hair)}
+.card{border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);
+  padding:26px 30px;display:flex;gap:20px;align-items:baseline}
+.card .n{font-family:var(--mono);font-size:.78rem;letter-spacing:.16em;color:#5c6675;flex:none}
+.card h3{font-family:var(--head);font-size:1.14rem;font-weight:600;color:#fff;
+  margin-bottom:6px;letter-spacing:-.025em}
+.card p{font-size:.96rem;line-height:1.5;color:#98a2b3}
+</style>
+</head>
+<body>
+
+<!-- ═══ SCÈNE 1 · plan produit ═══ -->
+<section class="scene" id="s1">
+  <div class="grain"></div>
+  <div class="txt">
+    <div class="brand" style="margin-bottom:34px">
+      <div class="brand-mark">A</div><div class="brand-name">Avis<em>Reset</em></div>
+    </div>
+    <div class="pill"><span class="dot"></span> Guide #01 — accès immédiat</div>
+    <h1>Gérer les<br><em>avis négatifs.</em></h1>
+    <p>Le protocole en 5 niveaux pour faire retirer les faux avis, contester les avis abusifs et neutraliser ceux qui resteront en ligne.</p>
+    <div class="tags">
+      <span class="tag">35 pages</span>
+      <span class="tag">9 chapitres</span>
+      <span class="tag">14 modèles</span>
+      <span class="tag">PDF A4</span>
+    </div>
+  </div>
+  <div class="stage">
+    <div class="book">
+      <div class="book-cover">
+        <div class="bc-brand"><div class="bc-mark">A</div><div class="bc-name">Avis<em>Reset</em></div></div>
+        <div class="bc-badge">Guide #01</div>
+        <div class="bc-stars"><b>★</b>★★★★</div>
+        <div class="bc-title">Gérer<br>les avis<em>négatifs.</em></div>
+        <div class="bc-rule"></div>
+        <div class="bc-sub">Le protocole en 5 niveaux pour faire retirer les faux avis, contester les avis abusifs et neutraliser ceux qui resteront en ligne.</div>
+        <div class="bc-foot">Google · TripAdvisor · Trustpilot<br>Facebook · Pages Jaunes · Booking</div>
+        <div class="fold"></div>
+      </div>
+      <div class="book-spine"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SCÈNE 2 · specs ═══ -->
+<section class="scene" id="s2">
+  <div class="grain"></div>
+  <div class="stage">
+    <div class="book flat">
+      <div class="book-cover">
+        <div class="bc-brand"><div class="bc-mark">A</div><div class="bc-name">Avis<em>Reset</em></div></div>
+        <div class="bc-badge">Guide #01</div>
+        <div class="bc-stars"><b>★</b>★★★★</div>
+        <div class="bc-title">Gérer<br>les avis<em>négatifs.</em></div>
+        <div class="bc-rule"></div>
+        <div class="bc-sub">Le protocole en 5 niveaux pour faire retirer les faux avis, contester les avis abusifs et neutraliser ceux qui resteront en ligne.</div>
+        <div class="bc-foot">Google · TripAdvisor · Trustpilot<br>Facebook · Pages Jaunes · Booking</div>
+        <div class="fold"></div>
+      </div>
+      <div class="book-spine"></div>
+    </div>
+  </div>
+  <div class="txt">
+    <div class="brand dark">
+      <div class="brand-mark">A</div><div class="brand-name">Avis<em>Reset</em></div>
+    </div>
+    <h2>Tout le protocole,<br>dans un seul fichier.</h2>
+    <div class="specs">
+      <div class="sp"><div class="v">35</div><div class="k">pages A4</div></div>
+      <div class="sp"><div class="v">9</div><div class="k">chapitres</div></div>
+      <div class="sp accent"><div class="v">14</div><div class="k">modèles inclus</div></div>
+      <div class="sp accent"><div class="v">7</div><div class="k">plateformes couvertes</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SCÈNE 3 · contenu ═══ -->
+<section class="scene" id="s3">
+  <div class="grain"></div>
+  <div class="head">
+    <div>
+      <div class="brand"><div class="brand-mark">A</div><div class="brand-name">Avis<em>Reset</em></div></div>
+      <h2>Ce que vous allez apprendre</h2>
+    </div>
+    <div class="side">Guide #01 · 9 chapitres + annexes</div>
+  </div>
+  <div class="grid">
+    <div class="card"><div class="n">01</div><div><h3>La règle du jeu</h3><p>Ce qui est supprimable, ce qui ne le sera jamais.</p></div></div>
+    <div class="card"><div class="n">02</div><div><h3>Diagnostiquer</h3><p>14 signaux de faux avis et le dossier de preuves.</p></div></div>
+    <div class="card"><div class="n">03</div><div><h3>Le signalement</h3><p>La procédure exacte et la formulation qui passe.</p></div></div>
+    <div class="card"><div class="n">04</div><div><h3>L'appel</h3><p>Recours interne, support et canaux d'escalade.</p></div></div>
+    <div class="card"><div class="n">05</div><div><h3>Le juridique</h3><p>DSA, mise en demeure, DGCCRF, référé.</p></div></div>
+    <div class="card"><div class="n">06</div><div><h3>Les plateformes</h3><p>TripAdvisor, Trustpilot, Facebook, Booking…</p></div></div>
+    <div class="card"><div class="n">07</div><div><h3>L'avis qui restera</h3><p>La méthode R.A.R.E. et 11 réponses modèles.</p></div></div>
+    <div class="card"><div class="n">08</div><div><h3>Enterrer</h3><p>La collecte conforme qui rend l'avis invisible.</p></div></div>
+    <div class="card"><div class="n">09</div><div><h3>Prévenir</h3><p>Intercepter l'insatisfaction avant la publication.</p></div></div>
+  </div>
+</section>
+
+</body>
+</html>
