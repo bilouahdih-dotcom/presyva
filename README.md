@@ -33,7 +33,7 @@ Le guide lui-même (source + PDF) est dans `Documents\presyva-guide-01\`.
 `mockup.html` produit trois scènes 1600 × 1200, sélectionnées par le hash de l'URL (`#s1`, `#s2`, `#s3`).
 
 ```bash
-"/c/Program Files/Google/Chrome/Application/chrome.exe" --headless=new --disable-gpu --hide-scrollbars --virtual-time-budget=4000 --window-size=1600,1200 --screenshot="C:\Users\bilel\Documents\avisreset\media\produit-1.png" "file:///C:/Users/bilel/Documents/avisreset/mockup.html#s1"
+"/c/Program Files/Google/Chrome/Application/chrome.exe" --headless=new --disable-gpu --hide-scrollbars --virtual-time-budget=4000 --window-size=1600,1200 --screenshot="C:\Users\bilel\Documents\avisreset\media\produit-1.png" "file:///C:/Users/bilel/Documents/presyva/mockup.html#s1"
 ```
 
 Répéter avec `#s2` / `produit-2.png` et `#s3` / `produit-3.png`.
