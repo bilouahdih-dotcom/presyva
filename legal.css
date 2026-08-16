@@ -1,17 +1,17 @@
-/* AvisReset — pages légales, même direction sombre que la boutique */
+/* PRESYVA — pages légales, même direction sombre que la boutique */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#05090f;
+  --bg:#060b16;
   --fg:#ffffff;
-  --fg-2:#98a2b3;
-  --fg-3:#5c6675;
+  --fg-2:#94a3c4;
+  --fg-3:#5d6b8c;
   --hair:rgba(255,255,255,.10);
-  --hair-2:rgba(255,255,255,.16);
+  --hair-2:rgba(255,255,255,.17);
   --blue:#2563eb;
-  --blue-lt:#60a5fa;
-  --teal:#18c7c8;
+  --blue-lt:#3b82f6;
+  --teal:#22d3ee;
   --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Consolas,monospace;
-  --disp:"Manrope","Aptos","Segoe UI",-apple-system,BlinkMacSystemFont,Arial,sans-serif;
+  --disp:"Montserrat","Aptos","Segoe UI",-apple-system,BlinkMacSystemFont,Arial,sans-serif;
   --body:"Inter","Aptos","Segoe UI",-apple-system,BlinkMacSystemFont,Arial,sans-serif;
   --gut:clamp(20px,4vw,56px);
 }
@@ -30,13 +30,9 @@ header{position:sticky;top:0;z-index:20;background:rgba(5,9,15,.82);
   backdrop-filter:blur(16px);border-bottom:1px solid var(--hair)}
 .nav{display:flex;align-items:center;height:76px;max-width:1320px;margin:0 auto;padding:0 var(--gut)}
 .brand{display:flex;align-items:center;gap:11px}
-.brand-mark{width:30px;height:30px;border-radius:9px;flex:none;
-  background:linear-gradient(135deg,#155eef 0%,#2563eb 52%,#18c7c8 100%);
-  display:grid;place-items:center;font-family:var(--disp);font-weight:800;font-size:15px;color:#fff}
-.brand-name{font-family:var(--disp);font-size:18px;font-weight:700;letter-spacing:-.03em;color:var(--fg)}
-.brand-name em{font-style:normal;color:var(--teal)}
+.brand-mark{width:34px;height:34px;flex:none}
+.brand-name{font-family:var(--disp);font-size:16px;font-weight:700;letter-spacing:.15em;color:var(--fg)}
 .brand.on-dark .brand-name{color:var(--fg)}
-.brand.on-dark .brand-name em{color:var(--teal)}
 .back{margin-left:auto;font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--fg-2)}
 .back:hover{color:var(--fg)}
 

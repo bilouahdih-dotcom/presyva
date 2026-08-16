@@ -3,29 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AvisReset — Reprenez le contrôle de votre réputation en ligne</title>
-<meta name="description" content="Guides pratiques d'e-réputation pour les professionnels. Guide #01 : le protocole en 5 niveaux pour faire retirer les faux avis et neutraliser les avis injustifiés.">
-<meta name="theme-color" content="#05090F">
-<link rel="canonical" href="https://avisreset.com/">
+<title>PRESYVA — Maîtrisez votre présence en ligne</title>
+<meta name="description" content="Guides pratiques pour maîtriser sa présence sur Internet. Guide #01 : fiche Google, site, référencement local, avis clients, réseaux, base clients, réputation et sécurité. 63 pages, 16 chapitres.">
+<meta name="theme-color" content="#060B16">
+<link rel="canonical" href="https://bilouahdih-dotcom.github.io/presyva/">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="AvisReset — Reprenez le contrôle de votre réputation en ligne">
-<meta property="og:description" content="Guide #01 : le protocole en 5 niveaux pour faire retirer les faux avis et neutraliser les avis injustifiés.">
+<meta property="og:title" content="PRESYVA — Maîtrisez votre présence en ligne">
+<meta property="og:description" content="Guide #01 : le manuel complet de la présence en ligne. 63 pages, 16 chapitres, 4 annexes.">
 <meta property="og:locale" content="fr_FR">
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23155EEF'/%3E%3Cstop offset='1' stop-color='%2318C7C8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='45' font-family='Arial' font-size='38' font-weight='bold' fill='%23fff' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' rx='26' fill='%230f1e3d'/%3E%3Cpath d='M34 92 A38 38 0 0 1 34 28' fill='none' stroke='%2322d3ee' stroke-width='7' stroke-linecap='round'/%3E%3Cpath d='M45 84 A27 27 0 0 1 45 36' fill='none' stroke='%2338bdf8' stroke-width='7' stroke-linecap='round'/%3E%3Cpath d='M56 76 A16 16 0 0 1 56 44' fill='none' stroke='%232563eb' stroke-width='7' stroke-linecap='round'/%3E%3Cpath d='M62 16 h18 a28 28 0 0 1 0 56 h-4 v32 h-18 V16 z M76 34 v20 h4 a10 10 0 0 0 0-20 z' fill='%233b82f6' fill-rule='evenodd'/%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
 /* ══════════════════════════════════════════════════
-   AvisReset — boutique
-   DA : noir + monospace + hairlines (réf. alche.studio)
-   Couche animée : Aurora, Dot Field, Shiny Text,
-   Splash Cursor, Scramble (réf. reactbits.dev)
-   Tout est en canvas 2D / CSS natif — zéro dépendance.
+   PRESYVA — boutique
+   DA : navy quasi noir, monospace pour le méta-texte,
+   hairlines. Couche animée en canvas 2D / CSS natif.
+   Palette issue du logo : navy, bleu, cyan.
    ══════════════════════════════════════════════════ */
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -34,48 +33,40 @@ img,svg{display:block;max-width:100%}
 button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 
 :root{
-  --bg:#05090f;
-  --night:#081329;
+  --bg:#060b16;
+  --navy:#0f1e3d;
   --fg:#ffffff;
-  --fg-2:#98a2b3;
-  --fg-3:#5c6675;
+  --fg-2:#94a3c4;
+  --fg-3:#5d6b8c;
   --hair:rgba(255,255,255,.10);
   --hair-2:rgba(255,255,255,.17);
-  --blue:#2563eb;
-  --blue-lt:#60a5fa;
-  --teal:#18c7c8;
+  --blue:#1e40af;
+  --blue-2:#2563eb;
+  --blue-lt:#3b82f6;
+  --cyan:#22d3ee;
 
   --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Consolas,monospace;
-  --disp:"Manrope","Aptos","Segoe UI",-apple-system,BlinkMacSystemFont,Arial,sans-serif;
+  --disp:"Montserrat","Aptos","Segoe UI",-apple-system,BlinkMacSystemFont,Arial,sans-serif;
   --body:"Inter","Aptos","Segoe UI",-apple-system,BlinkMacSystemFont,Arial,sans-serif;
 
   --maxw:1320px;
   --gut:clamp(20px,4vw,56px);
 }
 
-body{
-  background:var(--bg);color:var(--fg-2);
+body{background:var(--bg);color:var(--fg-2);
   font-family:var(--body);font-size:16px;line-height:1.7;
-  overflow-x:hidden;-webkit-font-smoothing:antialiased;
-}
-::selection{background:var(--blue);color:#fff}
+  overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--blue-2);color:#fff}
 
 /* ─── couches de fond ─── */
-#aurora{
-  position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;
-  filter:blur(70px) saturate(135%);opacity:.85;
-}
-#grain{
-  position:fixed;inset:0;z-index:210;pointer-events:none;opacity:.036;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-/* halo qui suit le curseur */
-#glow{
-  position:fixed;top:0;left:0;width:520px;height:520px;margin:-260px 0 0 -260px;
+#aurora{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;
+  filter:blur(70px) saturate(135%);opacity:.85}
+#grain{position:fixed;inset:0;z-index:210;pointer-events:none;opacity:.036;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E")}
+#glow{position:fixed;top:0;left:0;width:520px;height:520px;margin:-260px 0 0 -260px;
   border-radius:50%;z-index:1;pointer-events:none;opacity:0;
-  background:radial-gradient(circle,rgba(37,99,235,.22) 0%,rgba(24,199,200,.09) 38%,rgba(5,9,15,0) 68%);
-  transition:opacity .5s ease;will-change:transform;
-}
+  background:radial-gradient(circle,rgba(37,99,235,.22) 0%,rgba(34,211,238,.09) 38%,rgba(6,11,22,0) 68%);
+  transition:opacity .5s ease;will-change:transform}
 body > header,body > section,body > footer,body > .marq{position:relative;z-index:2}
 
 /* ─── primitives ─── */
@@ -84,99 +75,82 @@ body > header,body > section,body > footer,body > .marq{position:relative;z-inde
   letter-spacing:.14em;text-transform:uppercase;color:var(--fg-3)}
 .mono-lo{font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:none;color:var(--fg-2)}
 
-h1,h2,h3,h4{font-family:var(--disp);color:var(--fg);font-weight:500;letter-spacing:-.035em;line-height:1}
-.disp-xl{font-size:clamp(3.1rem,10.5vw,9.5rem)}
-.disp-lg{font-size:clamp(2.3rem,5.6vw,4.6rem);line-height:1.02}
-.disp-md{font-size:clamp(1.6rem,3vw,2.5rem);line-height:1.06}
+h1,h2,h3,h4{font-family:var(--disp);color:var(--fg);font-weight:600;letter-spacing:-.03em;line-height:1.02}
+.disp-xl{font-size:clamp(2.9rem,9.4vw,8.4rem);font-weight:700;letter-spacing:-.04em;line-height:.98}
+.disp-lg{font-size:clamp(2.1rem,5vw,4.1rem);line-height:1.04;font-weight:600}
+.disp-md{font-size:clamp(1.5rem,2.8vw,2.3rem);line-height:1.08;font-weight:600}
 p{margin:0}
 strong{color:var(--fg);font-weight:500}
 a{color:inherit;text-decoration:none}
 
-/* ─── texte dégradé + balayage brillant (Shiny Text) ─── */
-.grad{
-  background:linear-gradient(96deg,var(--blue-lt) 0%,var(--teal) 92%);
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-  position:relative;
-}
+.grad{background:linear-gradient(96deg,var(--blue-lt) 0%,var(--cyan) 92%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
 .shiny{position:relative;display:inline-block}
-.shiny::after{
-  content:"";position:absolute;inset:0;pointer-events:none;
+.shiny::after{content:"";position:absolute;inset:0;pointer-events:none;
   background:linear-gradient(105deg,transparent 38%,rgba(255,255,255,.55) 50%,transparent 62%);
-  background-size:280% 100%;
-  -webkit-mask:linear-gradient(#000,#000);
-  mix-blend-mode:overlay;
-  animation:shine 5.5s ease-in-out infinite;
-}
+  background-size:280% 100%;mix-blend-mode:overlay;animation:shine 5.5s ease-in-out infinite}
 @keyframes shine{0%{background-position:220% 0}55%,100%{background-position:-120% 0}}
 
-/* ─── boutons (magnétiques) ─── */
-.btn{
-  display:inline-flex;align-items:center;gap:12px;
+/* ─── boutons ─── */
+.btn{display:inline-flex;align-items:center;gap:12px;
   font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;
   color:var(--fg);border:1px solid var(--hair-2);border-radius:999px;
   padding:15px 26px;position:relative;overflow:hidden;
   transition:color .3s ease,border-color .3s ease,transform .25s cubic-bezier(.22,1,.36,1);
-  will-change:transform;
-}
+  will-change:transform}
 .btn > *{position:relative;z-index:1}
-.btn::before{
-  content:"";position:absolute;inset:0;border-radius:999px;
-  background:linear-gradient(100deg,var(--blue) 0%,var(--teal) 140%);
-  transform:translateY(101%);transition:transform .4s cubic-bezier(.22,1,.36,1);
-}
+.btn::before{content:"";position:absolute;inset:0;border-radius:999px;
+  background:linear-gradient(100deg,var(--blue-2) 0%,var(--cyan) 145%);
+  transform:translateY(101%);transition:transform .4s cubic-bezier(.22,1,.36,1)}
 .btn:hover{border-color:transparent;color:#fff}
 .btn:hover::before{transform:translateY(0)}
 .btn .arw{width:14px;height:14px;transition:transform .3s ease}
 .btn:hover .arw{transform:translateX(4px)}
-.btn-solid{border-color:transparent;color:#fff;
-  box-shadow:0 8px 30px -8px rgba(37,99,235,.6)}
+.btn-solid{border-color:transparent;color:#fff;box-shadow:0 8px 30px -8px rgba(37,99,235,.6)}
 .btn-solid::before{transform:translateY(0)}
 .btn-solid:hover::before{filter:brightness(1.15)}
 
-/* ─── tags ─── */
 .tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.05em;
-  color:var(--fg-2);border:1px solid #2b3340;border-radius:4px;padding:3px 10px}
+  color:var(--fg-2);border:1px solid #26324a;border-radius:4px;padding:3px 10px}
 .tag-row{display:flex;flex-wrap:wrap;gap:7px}
-.tag.on{color:var(--teal);border-color:rgba(24,199,200,.4)}
+.tag.on{color:var(--cyan);border-color:rgba(34,211,238,.4)}
 
 #prog{position:fixed;top:0;left:0;height:2px;width:100%;z-index:220;
   transform:scaleX(0);transform-origin:0 50%;
-  background:linear-gradient(90deg,var(--blue),var(--teal))}
+  background:linear-gradient(90deg,var(--blue-2),var(--cyan))}
 
 /* ─── header ─── */
 header{position:fixed;top:0;left:0;right:0;z-index:80;
   transition:background .35s ease,border-color .35s ease;border-bottom:1px solid transparent}
-header.stuck{background:rgba(5,9,15,.72);backdrop-filter:blur(18px);border-bottom-color:var(--hair)}
-.nav{display:flex;align-items:center;gap:34px;height:76px}
+header.stuck{background:rgba(6,11,22,.74);backdrop-filter:blur(18px);border-bottom-color:var(--hair)}
+.nav{display:flex;align-items:center;gap:34px;height:78px}
 .nav-links{display:flex;gap:30px;margin-left:auto;list-style:none}
 .nav-links a{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;color:var(--fg-2);
   position:relative;padding:4px 0;transition:color .25s ease}
-.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--teal);
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--cyan);
   transform:scaleX(0);transform-origin:100% 50%;transition:transform .34s cubic-bezier(.22,1,.36,1)}
 .nav-links a:hover{color:var(--fg)}
 .nav-links a:hover::after{transform:scaleX(1);transform-origin:0 50%}
 .nav .btn{padding:11px 20px;font-size:11px}
-@media(max-width:960px){.nav-links{display:none}.nav .btn{margin-left:auto}}
+@media(max-width:980px){.nav-links{display:none}.nav .btn{margin-left:auto}}
 
+/* ─── logo ─── */
 .brand{display:flex;align-items:center;gap:11px}
-.brand-mark{width:30px;height:30px;border-radius:9px;flex:none;
-  background:linear-gradient(135deg,#155eef 0%,#2563eb 52%,#18c7c8 100%);
-  display:grid;place-items:center;font-family:var(--disp);font-weight:800;font-size:15px;color:#fff}
-.brand-name{font-family:var(--disp);font-size:18px;font-weight:700;letter-spacing:-.03em;color:var(--fg)}
-.brand-name em{font-style:normal;color:var(--teal)}
+.brand svg{width:34px;height:34px;flex:none}
+.brand .wm{font-family:var(--disp);font-size:16px;font-weight:700;letter-spacing:.15em;color:var(--fg)}
+.brand.lg svg{width:46px;height:46px}
+.brand.lg .wm{font-size:21px}
 
 /* ═════════ HERO ═════════ */
-.hero{padding:176px 0 0;overflow:hidden}
+.hero{padding:184px 0 0;overflow:hidden}
 #dots{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.9}
 .hero .wrap{position:relative;z-index:1}
-
 .hero-meta{display:flex;flex-wrap:wrap;gap:16px 30px;align-items:center;margin-bottom:44px}
 .hero-meta .m{display:flex;align-items:center;gap:9px}
-.hero-meta .dot{width:6px;height:6px;border-radius:50%;background:var(--teal);
-  box-shadow:0 0 0 0 rgba(24,199,200,.55);animation:pulse 2.6s infinite}
-@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(24,199,200,0)}100%{box-shadow:0 0 0 0 rgba(24,199,200,0)}}
+.hero-meta .dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);
+  box-shadow:0 0 0 0 rgba(34,211,238,.55);animation:pulse 2.6s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(34,211,238,0)}100%{box-shadow:0 0 0 0 rgba(34,211,238,0)}}
 
-/* révélation ligne par ligne : animation CSS pure, aucune dépendance à `load` */
 .hero h1 .ln{display:block;overflow:hidden}
 .hero h1 .ln > span{display:block;transform:translateY(104%);
   animation:rise 1.05s cubic-bezier(.19,1,.22,1) .12s forwards}
@@ -193,44 +167,43 @@ header.stuck{background:rgba(5,9,15,.72);backdrop-filter:blur(18px);border-botto
 .scroller{display:flex;align-items:center;gap:12px;padding:22px 0;border-top:1px solid var(--hair)}
 .scroller .line{position:relative;flex:1;height:1px;background:var(--hair);overflow:hidden}
 .scroller .line::after{content:"";position:absolute;top:0;left:0;height:1px;width:22%;
-  background:linear-gradient(90deg,transparent,var(--teal),transparent);
+  background:linear-gradient(90deg,transparent,var(--cyan),transparent);
   animation:sweep 3.4s cubic-bezier(.6,.05,.35,.95) infinite}
 @keyframes sweep{0%{left:-24%}100%{left:102%}}
 
 /* ═════════ MARQUEE ═════════ */
 .marq{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);
-  overflow:hidden;padding:20px 0;background:rgba(5,9,15,.5);
+  overflow:hidden;padding:20px 0;background:rgba(6,11,22,.5);
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
-.marq-track{display:flex;width:max-content;animation:slide 34s linear infinite}
+.marq-track{display:flex;width:max-content;animation:slide 36s linear infinite}
 .marq:hover .marq-track{animation-play-state:paused}
 @keyframes slide{to{transform:translateX(-50%)}}
 .marq-track span{font-family:var(--mono);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;
   color:var(--fg-3);padding:0 30px;display:flex;align-items:center;gap:30px;white-space:nowrap}
-.marq-track span::after{content:"";width:4px;height:4px;border-radius:50%;background:#28303c}
+.marq-track span::after{content:"";width:4px;height:4px;border-radius:50%;background:#26324a}
 
 /* ═════════ SECTIONS ═════════ */
 .sec{padding:clamp(84px,10vw,150px) 0}
-.sec + .sec,.sec.top-line{border-top:1px solid var(--hair)}
+.sec + .sec{border-top:1px solid var(--hair)}
 .sec-head{display:grid;grid-template-columns:120px 1fr;gap:clamp(20px,4vw,60px);
   margin-bottom:clamp(46px,6vw,80px)}
 @media(max-width:760px){.sec-head{grid-template-columns:1fr;gap:18px}}
 .sec-head .idx{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;color:var(--fg-3);padding-top:9px}
-.sec-head .idx b{color:var(--teal);font-weight:400}
+.sec-head .idx b{color:var(--cyan);font-weight:400}
 .sec-head h2{margin-bottom:18px}
 .sec-head .note{max-width:58ch;font-size:16px;line-height:1.72}
 
-/* ─── lignes éditoriales ─── */
 .rows{border-top:1px solid var(--hair)}
-.row{display:grid;grid-template-columns:120px 1.05fr 1.3fr;gap:clamp(16px,3vw,44px);
+.row{display:grid;grid-template-columns:130px 1.05fr 1.3fr;gap:clamp(16px,3vw,44px);
   padding:26px 0;border-bottom:1px solid var(--hair);align-items:baseline;position:relative}
-@media(max-width:860px){.row{grid-template-columns:64px 1fr;row-gap:8px}.row .rdesc{grid-column:2/-1}}
+@media(max-width:860px){.row{grid-template-columns:70px 1fr;row-gap:8px}.row .rdesc{grid-column:2/-1}}
 .row::before{content:"";position:absolute;left:calc(var(--gut) * -1);right:calc(var(--gut) * -1);
-  top:0;bottom:0;background:linear-gradient(90deg,rgba(37,99,235,.09),rgba(24,199,200,.03) 60%,transparent);
+  top:0;bottom:0;background:linear-gradient(90deg,rgba(37,99,235,.09),rgba(34,211,238,.03) 60%,transparent);
   opacity:0;transition:opacity .35s ease;pointer-events:none}
 .row:hover::before{opacity:1}
-.row .rnum{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;color:var(--fg-3);transition:color .3s ease}
-.row:hover .rnum{color:var(--teal)}
+.row .rnum{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;color:var(--fg-3);transition:color .3s ease}
+.row:hover .rnum{color:var(--cyan)}
 .row h3{font-size:clamp(1.05rem,1.7vw,1.42rem);font-weight:600;letter-spacing:-.025em;line-height:1.22;
   transition:transform .35s cubic-bezier(.22,1,.36,1)}
 .row:hover h3{transform:translateX(8px)}
@@ -241,48 +214,50 @@ header.stuck{background:rgba(5,9,15,.72);backdrop-filter:blur(18px);border-botto
 @media(max-width:980px){.prod{grid-template-columns:1fr;gap:60px}}
 .prod > *{min-width:0}
 
-/* éventail d'aperçus de pages */
 .fan{position:relative;height:clamp(420px,42vw,540px);perspective:1900px;
   max-width:560px;margin:0 auto;width:100%}
-.pg{
-  position:absolute;top:50%;left:50%;width:min(300px,62%);aspect-ratio:1/1.414;
+.pg{position:absolute;top:50%;left:50%;width:min(300px,62%);aspect-ratio:1/1.414;
   background:#fff;border-radius:4px;overflow:hidden;
   box-shadow:0 30px 60px -18px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.07);
   transform-origin:50% 100%;transition:transform .8s cubic-bezier(.22,1,.36,1);
-  padding:20px 18px;font-family:var(--body);color:#344054;
-}
+  padding:20px 18px;font-family:var(--body);color:#334155}
 .pg-1{transform:translate(-50%,-50%) rotate(-12deg) translateX(-30%) scale(.9)}
 .pg-2{transform:translate(-50%,-50%) rotate(-5deg) translateX(-10%) scale(.95)}
 .pg-3{transform:translate(-50%,-50%) rotate(4deg) translateX(14%)}
 .fan:hover .pg-1{transform:translate(-50%,-50%) rotate(-16deg) translateX(-42%) scale(.9)}
 .fan:hover .pg-2{transform:translate(-50%,-50%) rotate(-7deg) translateX(-15%) scale(.95)}
 .fan:hover .pg-3{transform:translate(-50%,-50%) rotate(6deg) translateX(20%)}
-.pg .h{font-family:var(--disp);font-weight:800;color:#101828;letter-spacing:-.02em;
+.pg .h{font-family:var(--disp);font-weight:700;color:#0f172a;letter-spacing:-.02em;
   font-size:13px;line-height:1.2;margin-bottom:9px}
 .pg .k{font-family:var(--mono);font-size:6.5px;letter-spacing:.16em;text-transform:uppercase;
   color:#2563eb;margin-bottom:7px}
-.pg .t{font-size:7.4px;line-height:1.55;color:#475467;margin-bottom:7px}
-.pg .hr{height:1px;background:#e4e7ec;margin:9px 0}
+.pg .t{font-size:7.4px;line-height:1.55;color:#475569;margin-bottom:7px}
+.pg .hr{height:1px;background:#e2e8f0;margin:9px 0}
 .pg .quote{border-left:2px solid #2563eb;background:#f8fafc;border-radius:0 4px 4px 0;
-  padding:7px 9px;font-size:7px;line-height:1.5;color:#344054;margin-bottom:7px}
-.pg .li{display:flex;gap:5px;font-size:7.2px;line-height:1.5;margin-bottom:4px;color:#475467}
+  padding:7px 9px;font-size:7px;line-height:1.5;color:#334155;margin-bottom:7px}
+.pg .li{display:flex;gap:5px;font-size:7.2px;line-height:1.5;margin-bottom:4px;color:#475569}
 .pg .li i{font-style:normal;color:#2563eb;font-family:var(--mono);font-size:6px;flex:none;padding-top:1px}
-.pg .box{border:1px solid #e4e7ec;border-radius:5px;padding:7px 9px;background:#f8fafc}
+.pg .box{border:1px solid #e2e8f0;border-radius:5px;padding:7px 9px;background:#f8fafc}
 .pg .cell{display:grid;grid-template-columns:auto 1fr;gap:5px 8px;font-size:6.8px;line-height:1.5}
-.pg .cell b{color:#101828;font-weight:600}
-.pg .cover{position:absolute;inset:0;background:var(--night);padding:22px 20px;
-  display:flex;flex-direction:column;color:#fff}
-.pg .cover .bt{font-family:var(--disp);font-weight:800;font-size:22px;line-height:1.04;
-  letter-spacing:-.04em;margin-bottom:10px}
+.pg .cell b{color:#0f172a;font-weight:600}
+.pg .cover{position:absolute;inset:0;background:var(--navy);padding:22px 20px;
+  display:flex;flex-direction:column;color:#fff;overflow:hidden}
+.pg .cover::before{content:"";position:absolute;top:-42%;right:-46%;width:112%;height:112%;border-radius:50%;
+  background:radial-gradient(circle,rgba(37,99,235,.62) 0%,rgba(30,64,175,.2) 42%,rgba(15,30,61,0) 72%)}
+.pg .cover::after{content:"";position:absolute;bottom:-46%;left:-42%;width:108%;height:108%;border-radius:50%;
+  background:radial-gradient(circle,rgba(34,211,238,.3) 0%,rgba(34,211,238,0) 66%)}
+.pg .cover > *{position:relative;z-index:1}
+.pg .cover .bt{font-family:var(--disp);font-weight:700;font-size:19px;line-height:1.06;
+  letter-spacing:-.03em;margin-bottom:10px}
 .pg .cover .bt em{font-style:normal;display:block;
-  background:linear-gradient(100deg,#60a5fa,#18c7c8);-webkit-background-clip:text;background-clip:text;color:transparent}
+  background:linear-gradient(100deg,#3b82f6,#22d3ee);-webkit-background-clip:text;background-clip:text;color:transparent}
 
 .badge-float{position:absolute;z-index:3;font-family:var(--mono);font-size:10px;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--fg);background:rgba(8,19,41,.86);backdrop-filter:blur(8px);
+  text-transform:uppercase;color:var(--fg);background:rgba(15,30,61,.86);backdrop-filter:blur(8px);
   border:1px solid var(--hair-2);border-radius:999px;padding:8px 15px}
 .badge-float.a{top:5%;right:2%}
 .badge-float.b{bottom:6%;left:0}
-.badge-float .d{color:var(--teal)}
+.badge-float .d{color:var(--cyan)}
 
 .specs{border-top:1px solid var(--hair);margin:38px 0}
 .specs .sp{display:grid;grid-template-columns:150px 1fr;gap:20px;
@@ -294,9 +269,9 @@ header.stuck{background:rgba(5,9,15,.72);backdrop-filter:blur(18px);border-botto
 
 .buy{display:flex;flex-wrap:wrap;align-items:center;gap:26px;margin-top:34px}
 .price{display:flex;align-items:baseline;gap:7px}
-.price .a{font-family:var(--disp);font-size:clamp(2.5rem,4.4vw,3.6rem);font-weight:500;
-  letter-spacing:-.055em;color:var(--fg);line-height:.9}
-.price .c{font-family:var(--disp);font-size:1.15rem;font-weight:500;color:var(--fg)}
+.price .a{font-family:var(--disp);font-size:clamp(2.4rem,4.2vw,3.4rem);font-weight:600;
+  letter-spacing:-.05em;color:var(--fg);line-height:.9}
+.price .c{font-family:var(--disp);font-size:1.15rem;font-weight:600;color:var(--fg)}
 .price .n{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
   color:var(--fg-3);margin-left:6px}
 
@@ -308,7 +283,7 @@ header.stuck{background:rgba(5,9,15,.72);backdrop-filter:blur(18px);border-botto
   transition:background .4s ease}
 .ben:hover{background:rgba(255,255,255,.022)}
 .ben::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;
-  background:linear-gradient(90deg,var(--blue),var(--teal));
+  background:linear-gradient(90deg,var(--blue-2),var(--cyan));
   transform:scaleX(0);transform-origin:0 50%;transition:transform .5s cubic-bezier(.22,1,.36,1)}
 .ben:hover::after{transform:scaleX(1)}
 .ben .n{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--fg-3);
@@ -329,12 +304,12 @@ header.stuck{background:rgba(5,9,15,.72);backdrop-filter:blur(18px);border-botto
 .cc:hover{background:rgba(255,255,255,.022)}
 .cc .num{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--fg-3)}
 .cc h3{font-size:1.05rem;font-weight:600;letter-spacing:-.02em;line-height:1.25;margin-bottom:auto}
-.cc.live{background:linear-gradient(160deg,rgba(37,99,235,.14),rgba(24,199,200,.05) 62%,transparent)}
-.cc.live .num{color:var(--teal)}
+.cc.live{background:linear-gradient(160deg,rgba(37,99,235,.14),rgba(34,211,238,.05) 62%,transparent)}
+.cc.live .num{color:var(--cyan)}
 
 /* ─── réassurance ─── */
 .trust{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:clamp(20px,3vw,44px)}
-.tr .ic{width:20px;height:20px;color:var(--teal);margin-bottom:18px}
+.tr .ic{width:20px;height:20px;color:var(--cyan);margin-bottom:18px}
 .tr h4{font-size:1rem;font-weight:600;letter-spacing:-.02em;margin-bottom:7px}
 .tr p{font-size:14px;line-height:1.62}
 
@@ -347,27 +322,28 @@ header.stuck{background:rgba(5,9,15,.72);backdrop-filter:blur(18px);border-botto
 @media(max-width:760px){.faq summary,.faq .a{grid-template-columns:64px 1fr !important}}
 .faq summary:hover{opacity:.72}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary .q{font-family:var(--disp);font-size:clamp(1.02rem,1.6vw,1.28rem);
-  font-weight:600;letter-spacing:-.025em;line-height:1.3;color:var(--fg)}
+.faq summary .q{font-family:var(--disp);font-size:clamp(1rem,1.5vw,1.22rem);
+  font-weight:600;letter-spacing:-.025em;line-height:1.32;color:var(--fg)}
 .faq summary .fnum{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;color:var(--fg-3)}
 .faq summary::after{content:"";position:absolute;right:6px;top:34px;width:12px;height:12px;
   background:linear-gradient(var(--fg-2),var(--fg-2)) center/12px 1px no-repeat,
              linear-gradient(var(--fg-2),var(--fg-2)) center/1px 12px no-repeat;
   transition:background .3s ease}
 .faq details[open] summary::after{
-  background:linear-gradient(var(--teal),var(--teal)) center/12px 1px no-repeat}
+  background:linear-gradient(var(--cyan),var(--cyan)) center/12px 1px no-repeat}
 .faq .a{display:grid;grid-template-columns:120px 1fr;gap:clamp(16px,3vw,44px);padding:0 56px 30px 0}
 .faq .a .txt{font-size:15.4px;line-height:1.75;max-width:64ch}
 .faq .a .txt p + p{margin-top:14px}
 
-/* ═════════ OUTRO STICKY ═════════ */
+/* ═════════ OUTRO ═════════ */
 .outro{height:190vh;position:relative;border-top:1px solid var(--hair)}
 .outro-screen{position:sticky;top:0;height:100vh;display:grid;place-items:center;
   text-align:center;overflow:hidden}
-.outro-screen .inner{position:relative;z-index:1;padding:0 var(--gut);max-width:820px}
+.outro-screen .inner{position:relative;z-index:1;padding:0 var(--gut);max-width:840px}
 .outro h2{margin:24px auto 22px}
 .outro p{max-width:52ch;margin:0 auto 42px;font-size:16.5px}
 .outro .cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.outro .brand{justify-content:center;margin-bottom:6px}
 .rings{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
 .rings i{position:absolute;border:1px solid rgba(255,255,255,.055);border-radius:50%;
   width:34vmax;height:34vmax;animation:ring 9s ease-in-out infinite}
@@ -385,15 +361,14 @@ footer h4{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-trans
 footer ul{list-style:none;display:grid;gap:11px}
 footer ul a{font-size:14.5px;color:var(--fg-2);transition:color .22s ease}
 footer ul a:hover{color:var(--fg)}
-.f-word{font-family:var(--disp);font-weight:500;letter-spacing:-.05em;line-height:.82;
-  font-size:clamp(3.2rem,15.5vw,15rem);color:transparent;
-  -webkit-text-stroke:1px rgba(255,255,255,.13);margin-bottom:34px;user-select:none}
+.f-word{font-family:var(--disp);font-weight:700;letter-spacing:.02em;line-height:.9;
+  font-size:clamp(2.6rem,12.4vw,12rem);color:transparent;
+  -webkit-text-stroke:1px rgba(255,255,255,.13);margin-bottom:34px;user-select:none;text-align:center}
 .f-bot{display:flex;flex-wrap:wrap;gap:12px 26px;justify-content:space-between;
   padding-top:26px;border-top:1px solid var(--hair)}
 .f-bot span{font-family:var(--mono);font-size:11px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--fg-3)}
 
-/* ─── apparition ─── */
 .rv{opacity:0;transform:translateY(26px);
   transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1)}
 .rv.in{opacity:1;transform:none}
@@ -416,16 +391,32 @@ footer ul a:hover{color:var(--fg)}
 <div id="glow" aria-hidden="true"></div>
 <div id="grain" aria-hidden="true"></div>
 
+<!-- logo réutilisable -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="pg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3b82f6"/><stop offset="1" stop-color="#1e40af"/>
+    </linearGradient>
+    <symbol id="mark" viewBox="0 0 120 120">
+      <path d="M34 92 A38 38 0 0 1 34 28" fill="none" stroke="#22d3ee" stroke-width="7" stroke-linecap="round"/>
+      <path d="M45 84 A27 27 0 0 1 45 36" fill="none" stroke="#38bdf8" stroke-width="7" stroke-linecap="round"/>
+      <path d="M56 76 A16 16 0 0 1 56 44" fill="none" stroke="#2563eb" stroke-width="7" stroke-linecap="round"/>
+      <path d="M62 16 h18 a28 28 0 0 1 0 56 h-4 v32 h-18 V16 z M76 34 v20 h4 a10 10 0 0 0 0-20 z"
+            fill="url(#pg)" fill-rule="evenodd"/>
+    </symbol>
+  </defs>
+</svg>
+
 <!-- ══════════ HEADER ══════════ -->
 <header id="hdr">
   <div class="wrap">
     <nav class="nav">
-      <a href="#top" class="brand" aria-label="AvisReset, accueil">
-        <span class="brand-mark" aria-hidden="true">A</span>
-        <span class="brand-name">Avis<em>Reset</em></span>
+      <a href="#top" class="brand" aria-label="PRESYVA, accueil">
+        <svg><use href="#mark"/></svg>
+        <span class="wm">PRESYVA</span>
       </a>
       <ul class="nav-links">
-        <li><a href="#methode">Méthode</a></li>
+        <li><a href="#territoires">Méthode</a></li>
         <li><a href="#guide">Guide #01</a></li>
         <li><a href="#sommaire">Sommaire</a></li>
         <li><a href="#collection">Collection</a></li>
@@ -443,17 +434,17 @@ footer ul a:hover{color:var(--fg)}
     <div class="hero-meta">
       <span class="m"><span class="dot"></span><span class="mono">Guide #01 — disponible</span></span>
       <span class="mono">Édition 2026 · France</span>
-      <span class="mono">Boutique de guides e-réputation</span>
+      <span class="mono">Guides de présence en ligne</span>
     </div>
 
     <h1 class="disp-xl">
-      <span class="ln"><span>Reprenez</span></span>
-      <span class="ln"><span>le contrôle</span></span>
-      <span class="ln"><span class="grad shiny">de vos avis.</span></span>
+      <span class="ln"><span>Maîtrisez</span></span>
+      <span class="ln"><span>votre présence</span></span>
+      <span class="ln"><span class="grad shiny">en ligne.</span></span>
     </h1>
 
     <div class="hero-bot">
-      <p>Des guides pratiques pour comprendre, gérer et contester les avis qui nuisent à votre activité. Procédures exactes, méthodes conformes, modèles prêts à l'emploi — sans aucune promesse de suppression magique.</p>
+      <p>Votre présence en ligne existe déjà : une fiche que vous n'avez pas créée, des annuaires qui vous recopient, des avis que vous n'avez pas lus. La seule question, c'est de savoir qui l'écrit — vous, ou le hasard.</p>
       <div class="hero-cta">
         <a href="#guide" class="btn btn-solid magnet"><span>Accéder au guide</span>
           <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -465,7 +456,7 @@ footer ul a:hover{color:var(--fg)}
     <div class="scroller">
       <span class="mono">Scroll</span>
       <span class="line"></span>
-      <span class="mono">9 chapitres · 14 modèles · 35 pages</span>
+      <span class="mono">63 pages · 16 chapitres · 4 annexes</span>
     </div>
   </div>
 </section>
@@ -473,29 +464,30 @@ footer ul a:hover{color:var(--fg)}
 <!-- ══════════ MARQUEE ══════════ -->
 <div class="marq" aria-hidden="true">
   <div class="marq-track">
-    <span>Google Business Profile</span><span>TripAdvisor</span><span>Trustpilot</span><span>Facebook</span><span>Pages Jaunes</span><span>Booking</span><span>Doctolib</span>
-    <span>Google Business Profile</span><span>TripAdvisor</span><span>Trustpilot</span><span>Facebook</span><span>Pages Jaunes</span><span>Booking</span><span>Doctolib</span>
+    <span>Google Business Profile</span><span>Site web</span><span>SEO local</span><span>Avis clients</span><span>Réseaux sociaux</span><span>E-mail</span><span>Réputation</span><span>RGPD</span><span>Analytics</span>
+    <span>Google Business Profile</span><span>Site web</span><span>SEO local</span><span>Avis clients</span><span>Réseaux sociaux</span><span>E-mail</span><span>Réputation</span><span>RGPD</span><span>Analytics</span>
   </div>
 </div>
 
-<!-- ══════════ 01 · MÉTHODE ══════════ -->
-<section class="sec" id="methode">
+<!-- ══════════ 01 · LES TERRITOIRES ══════════ -->
+<section class="sec" id="territoires">
   <div class="wrap">
     <div class="sec-head rv">
       <div class="idx"><b>01</b> — Méthode</div>
       <div>
-        <h2 class="disp-lg scramble">Une plateforme ne supprime pas un avis parce qu'il est négatif.</h2>
-        <p class="note">Elle le supprime parce qu'il enfreint une règle nommée, prouvée, et invoquée correctement. Tout le reste — l'indignation, l'ancienneté, l'injustice — ne compte pas. Le protocole tient en cinq niveaux, du plus léger au plus lourd.</p>
+        <h2 class="disp-lg scramble">Votre présence n'est pas une chose. Elle en est sept.</h2>
+        <p class="note">Sept territoires, qui n'ont ni le même poids ni le même degré de contrôle. Deux vous appartiennent réellement, cinq sont loués. Savoir lesquels change tout ce que vous en ferez.</p>
       </div>
     </div>
 
     <div class="rows">
-      <div class="row rv"><div class="rnum">Niveau 00</div><h3>Diagnostic</h3><p class="rdesc">Qualifier l'avis, appliquer les 14 signaux de détection, monter le dossier de preuves. <span class="mono-lo">30 min · gratuit</span></p></div>
-      <div class="row rv"><div class="rnum">Niveau 01</div><h3>Signalement</h3><p class="rdesc">Invoquer la règle enfreinte avec la formulation en quatre blocs qui passe la modération. <span class="mono-lo">15 min · 3 j à 3 sem.</span></p></div>
-      <div class="row rv"><div class="rnum">Niveau 02</div><h3>Appel &amp; escalade</h3><p class="rdesc">Recours interne, support avec numéro de dossier, et deux canaux d'escalade ignorés de tous. <span class="mono-lo">1 h · 1 à 4 sem.</span></p></div>
-      <div class="row rv"><div class="rnum">Niveau 03</div><h3>Levier juridique</h3><p class="rdesc">Formulaire légal, recours DSA article 21, mise en demeure, signalement DGCCRF. <span class="mono-lo">0 à 400 € · 2 à 8 sem.</span></p></div>
-      <div class="row rv"><div class="rnum">Niveau 04</div><h3>Action judiciaire</h3><p class="rdesc">Référé, action au fond, plainte. Avec le calcul froid qui dit quand ça ne vaut pas le coût. <span class="mono-lo">800 à 4 000 € · 1 à 6 mois</span></p></div>
-      <div class="row rv"><div class="rnum">Niveau 05</div><h3>Neutralisation</h3><p class="rdesc">Le seul niveau qui fonctionne sur tous les avis, y compris ceux qui resteront pour toujours. <span class="mono-lo">Permanent · quasi gratuit</span></p></div>
+      <div class="row rv"><div class="rnum">Territoire 1</div><h3>Fiche Google</h3><p class="rdesc">Le premier contact. Décide si l'on vous voit et si l'on vous appelle. <span class="mono-lo">contrôle fort · révocable</span></p></div>
+      <div class="row rv"><div class="rnum">Territoire 2</div><h3>Site web</h3><p class="rdesc">Votre terrain. Le seul endroit où personne ne peut vous couper. <span class="mono-lo">contrôle total</span></p></div>
+      <div class="row rv"><div class="rnum">Territoire 3</div><h3>Avis et notes</h3><p class="rdesc">La preuve. Écrite par vos clients, jamais par vous. <span class="mono-lo">contrôle indirect</span></p></div>
+      <div class="row rv"><div class="rnum">Territoire 4</div><h3>Annuaires et citations</h3><p class="rdesc">La cohérence. Renforce ou brouille le signal envoyé aux moteurs. <span class="mono-lo">contrôle moyen</span></p></div>
+      <div class="row rv"><div class="rnum">Territoire 5</div><h3>Réseaux sociaux</h3><p class="rdesc">L'entretien du lien. Utile pour rester présent, mauvais pour être découvert. <span class="mono-lo">contrôle faible · révocable</span></p></div>
+      <div class="row rv"><div class="rnum">Territoire 6</div><h3>Base clients</h3><p class="rdesc">Votre actif. Le seul canal que personne ne peut vous retirer. <span class="mono-lo">contrôle total</span></p></div>
+      <div class="row rv"><div class="rnum">Territoire 7</div><h3>Contenus de tiers</h3><p class="rdesc">Presse, forums, blogs, vidéos. Vous ne le contrôlez pas — vous pouvez l'influencer. <span class="mono-lo">contrôle nul</span></p></div>
     </div>
   </div>
 </section>
@@ -507,16 +499,16 @@ footer ul a:hover{color:var(--fg)}
       <div class="idx"><b>02</b> — Résultats</div>
       <div>
         <h2 class="disp-lg scramble">Ce que ça change concrètement.</h2>
-        <p class="note">La plupart des professionnels signalent mal, répondent trop vite, et abandonnent au premier refus. Le guide corrige les trois.</p>
+        <p class="note">La plupart des professionnels s'épuisent sur le territoire le moins rentable, et laissent le plus rentable à l'abandon. Le guide remet l'ordre dans les priorités.</p>
       </div>
     </div>
 
     <div class="bens">
-      <div class="ben rv"><span class="n">A / 05</span><h3>Trier en 60 secondes</h3><p>Les 8 motifs qui font réellement tomber un avis, et les 5 cas où vous perdez votre temps. Le tri se fait avant d'agir, pas après trois semaines.</p></div>
-      <div class="ben rv"><span class="n">B / 05</span><h3>Signaler du premier coup</h3><p>La structure en quatre blocs qui passe la modération, le motif exact à choisir, et les formulations qui condamnent un dossier.</p></div>
-      <div class="ben rv"><span class="n">C / 05</span><h3>Encaisser un refus</h3><p>Appel interne, support, recours européen DSA, mise en demeure, DGCCRF. Chaque niveau avec son coût réel et son délai réel.</p></div>
-      <div class="ben rv"><span class="n">D / 05</span><h3>Répondre sans aggraver</h3><p>La méthode R.A.R.E. et onze réponses modèles. Un avis négatif bien traité rassure davantage qu'une fiche parfaite à cinq étoiles.</p></div>
-      <div class="ben rv"><span class="n">E / 05</span><h3>Enterrer le reste</h3><p>Le système de collecte régulière et conforme qui rend un avis à une étoile mathématiquement invisible en quelques semaines.</p></div>
+      <div class="ben rv"><span class="n">A / 05</span><h3>Voir ce qu'on voit de vous</h3><p>L'audit en 45 minutes : les huit recherches à faire, la grille de notation des sept territoires, et votre score de départ.</p></div>
+      <div class="ben rv"><span class="n">B / 05</span><h3>Être trouvé sur les bonnes requêtes</h3><p>Les trois critères du référencement local, la catégorie qui change tout, et les pages qui se positionnent réellement.</p></div>
+      <div class="ben rv"><span class="n">C / 05</span><h3>Être choisi une fois trouvé</h3><p>Avis, photos, preuves. Ce qui fait pencher la décision quand votre client compare trois fiches côte à côte.</p></div>
+      <div class="ben rv"><span class="n">D / 05</span><h3>Ne plus rien perdre</h3><p>Propriété des comptes, récupération d'une fiche, usurpation, RGPD. La partie que personne ne lit — jusqu'au jour où.</p></div>
+      <div class="ben rv"><span class="n">E / 05</span><h3>Tenir dans la durée</h3><p>Huit indicateurs à relever, un plan sur 90 jours semaine par semaine, et une routine d'entretien de quinze minutes hebdomadaires. C'est la régularité qui produit le résultat, pas l'intensité.</p></div>
     </div>
   </div>
 </section>
@@ -527,51 +519,51 @@ footer ul a:hover{color:var(--fg)}
     <div class="sec-head rv">
       <div class="idx"><b>03</b> — Produit</div>
       <div>
-        <h2 class="disp-lg scramble">Guide #01 — Gérer les avis négatifs.</h2>
-        <p class="note">Le protocole complet, du diagnostic d'un faux avis jusqu'au recours juridique. Et ce qu'on fait, très concrètement, quand l'avis reste en ligne.</p>
+        <h2 class="disp-lg scramble">Guide #01 — Maîtriser sa présence sur Internet.</h2>
+        <p class="note">Le manuel complet : fiche Google, site, référencement local, publicité, avis, photos, réseaux, base clients, réputation, sécurité et mesure. Rien n'est laissé de côté.</p>
       </div>
     </div>
 
     <div class="prod">
       <div class="fan rv">
-        <span class="badge-float a"><span class="d">●</span> 35 pages</span>
+        <span class="badge-float a"><span class="d">●</span> 63 pages</span>
         <span class="badge-float b">Aperçu de l'intérieur</span>
 
-        <!-- page : annexe modèles -->
         <div class="pg pg-1">
           <div class="k">Annexe A</div>
-          <div class="h">11 réponses prêtes à copier</div>
-          <div class="quote">Bonjour, nous avons vérifié l'ensemble de nos réservations sur la période indiquée sans retrouver de passage correspondant.</div>
-          <div class="quote">Bonjour, vous avez raison, 40 minutes d'attente n'est pas acceptable et je le regrette.</div>
+          <div class="h">12 modèles de messages</div>
+          <div class="quote">Bonjour, merci pour votre visite ! Si vous avez 30 secondes, votre avis nous aiderait beaucoup.</div>
+          <div class="quote">Nous vous mettons en demeure de procéder au retrait de ce contenu dans un délai de huit jours.</div>
           <div class="hr"></div>
-          <div class="li"><i>07</i><span>Insulte ou agressivité</span></div>
-          <div class="li"><i>08</i><span>Une étoile sans commentaire</span></div>
-          <div class="li"><i>09</i><span>Reproche hors de votre contrôle</span></div>
+          <div class="li"><i>09</i><span>Demande de transfert d'une fiche</span></div>
+          <div class="li"><i>11</i><span>Relance après un devis sans réponse</span></div>
+          <div class="li"><i>12</i><span>Réponse à une réclamation privée</span></div>
         </div>
 
-        <!-- page : chapitre 2 -->
         <div class="pg pg-2">
-          <div class="k">Chapitre 2</div>
-          <div class="h">Diagnostiquer un faux avis</div>
-          <div class="t">Aucun signal ne suffit isolément. Trois signaux ou plus sur le même avis, et vous avez un dossier sérieux.</div>
-          <div class="li"><i>01</i><span>Le profil est vide</span></div>
-          <div class="li"><i>02</i><span>Un seul avis dans l'historique</span></div>
-          <div class="li"><i>03</i><span>Des avis à l'autre bout du pays</span></div>
-          <div class="li"><i>04</i><span>Une grappe temporelle</span></div>
-          <div class="li"><i>05</i><span>Aucun détail vérifiable</span></div>
+          <div class="k">Chapitre 3</div>
+          <div class="h">Google Business Profile</div>
+          <div class="t">Chaque champ, son poids réel, et les erreurs qui coûtent des places.</div>
+          <div class="li"><i>01</i><span>Nom — décisif, sans mot-clé ajouté</span></div>
+          <div class="li"><i>02</i><span>Catégorie principale — le levier n° 1</span></div>
+          <div class="li"><i>03</i><span>Zone desservie ou adresse exacte</span></div>
+          <div class="li"><i>04</i><span>Horaires exceptionnels</span></div>
+          <div class="li"><i>05</i><span>Questions / réponses — sous-estimé</span></div>
           <div class="hr"></div>
-          <div class="box"><div class="cell"><b>Preuve</b><span>Export de caisse daté</span><b>Délai</b><span>3 j à 3 sem.</span></div></div>
+          <div class="box"><div class="cell"><b>Routine</b><span>15 min par semaine</span><b>Coût</b><span>Gratuit</span></div></div>
         </div>
 
-        <!-- couverture -->
         <div class="pg pg-3">
           <div class="cover">
-            <div style="font-family:var(--mono);font-size:7px;letter-spacing:.2em;text-transform:uppercase;color:#9ec2ff;border:1px solid rgba(158,194,255,.34);border-radius:99px;padding:3px 9px;align-self:flex-start;margin-bottom:auto">Guide #01</div>
-            <div style="font-size:11px;letter-spacing:.14em;color:#22304c;margin-bottom:9px"><b style="color:#18c7c8;font-weight:400">★</b>★★★★</div>
-            <div class="bt">Gérer<br>les avis<em>négatifs.</em></div>
-            <div style="width:30px;height:2px;border-radius:2px;background:linear-gradient(90deg,#155eef,#18c7c8);margin-bottom:10px"></div>
-            <div style="font-size:7.5px;line-height:1.5;color:#a9b6cc">Le protocole en 5 niveaux pour faire retirer les faux avis, contester les avis abusifs et neutraliser ceux qui resteront en ligne.</div>
-            <div style="font-family:var(--mono);font-size:5.5px;letter-spacing:.14em;text-transform:uppercase;color:#5a6b87;line-height:2;margin-top:12px">Google · TripAdvisor · Trustpilot<br>Facebook · Pages Jaunes · Booking</div>
+            <div style="display:flex;align-items:center;gap:5px;margin-bottom:auto">
+              <svg style="width:14px;height:14px;flex:none"><use href="#mark"/></svg>
+              <span style="font-family:var(--disp);font-weight:700;font-size:7.5px;letter-spacing:.15em;color:#fff">PRESYVA</span>
+            </div>
+            <div style="font-family:var(--mono);font-size:6.5px;letter-spacing:.2em;text-transform:uppercase;color:#93c5fd;border:1px solid rgba(147,197,253,.36);border-radius:99px;padding:3px 9px;align-self:flex-start;margin-bottom:10px">Guide #01</div>
+            <div class="bt">Maîtriser sa<em>présence sur Internet.</em></div>
+            <div style="width:30px;height:2px;border-radius:2px;background:linear-gradient(90deg,#2563eb,#22d3ee);margin-bottom:9px"></div>
+            <div style="font-size:7px;line-height:1.5;color:#a8b8d4">Le manuel complet du professionnel : fiche Google, site, référencement local, avis, réseaux, base clients, réputation et mesure.</div>
+            <div style="font-family:var(--mono);font-size:5px;letter-spacing:.14em;text-transform:uppercase;color:#5d6b8c;line-height:2;margin-top:10px">Google · Site · SEO local · Avis<br>Réseaux · E-mail · RGPD · Analytics</div>
           </div>
         </div>
       </div>
@@ -584,14 +576,14 @@ footer ul a:hover{color:var(--fg)}
           <span class="tag">pdf_a4</span>
         </div>
 
-        <h3 class="disp-md">Tout le protocole,<br>dans un seul fichier.</h3>
+        <h3 class="disp-md">Six parties,<br>de l'audit à la routine.</h3>
 
         <div class="specs">
-          <div class="sp"><div class="k">Format</div><div class="v">PDF A4 · 35 pages</div></div>
-          <div class="sp"><div class="k">Structure</div><div class="v">9 chapitres <small>+ 3 annexes</small></div></div>
-          <div class="sp"><div class="k">Modèles</div><div class="v">14 <small>réponses, courriers, tableaux</small></div></div>
-          <div class="sp"><div class="k">Plateformes</div><div class="v">7 <small>Google, TripAdvisor, Trustpilot…</small></div></div>
-          <div class="sp"><div class="k">Pour qui</div><div class="v"><small>Restaurants, commerces, artisans, salons, garages, professions libérales, hôtels — et les agences qui gèrent la réputation de leurs clients.</small></div></div>
+          <div class="sp"><div class="k">Format</div><div class="v">PDF A4 · 63 pages</div></div>
+          <div class="sp"><div class="k">Structure</div><div class="v">16 chapitres <small>en 6 parties</small></div></div>
+          <div class="sp"><div class="k">Annexes</div><div class="v">4 <small>modèles, checklists, tableau de bord, glossaire</small></div></div>
+          <div class="sp"><div class="k">Modèles</div><div class="v">12 <small>messages et courriers prêts à copier</small></div></div>
+          <div class="sp"><div class="k">Pour qui</div><div class="v"><small>Commerces, artisans, professions libérales, prestataires B2B, vente en ligne — et les agences qui gèrent la présence de leurs clients.</small></div></div>
         </div>
 
         <div class="buy">
@@ -599,7 +591,7 @@ footer ul a:hover{color:var(--fg)}
             <span class="a">49,99</span><span class="c">€</span>
             <span class="n">TTC · paiement unique</span>
           </div>
-          <!-- Remplacer par le lien de checkout Lemon Squeezy -->
+          <!-- Remplacer par le lien de checkout -->
           <a href="#" class="btn btn-solid magnet" data-checkout><span>Accéder au guide</span>
             <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
@@ -617,21 +609,18 @@ footer ul a:hover{color:var(--fg)}
       <div class="idx"><b>04</b> — Sommaire</div>
       <div>
         <h2 class="disp-lg scramble">Ce que vous allez apprendre.</h2>
-        <p class="note">Neuf chapitres, du diagnostic à la prévention. Chacun se lit en dix minutes et s'applique le jour même.</p>
+        <p class="note">Six parties dans un ordre qui n'est pas décoratif : chacune s'appuie sur la précédente. Lisez dans l'ordre la première fois, servez-vous en comme manuel ensuite.</p>
       </div>
     </div>
 
     <div class="rows">
-      <div class="row rv"><div class="rnum">Ch. 01</div><h3>La règle du jeu</h3><p class="rdesc">Ce qui est supprimable, ce qui ne le sera jamais, et le test des 60 secondes à faire avant d'agir.</p></div>
-      <div class="row rv"><div class="rnum">Ch. 02</div><h3>Diagnostiquer un faux avis</h3><p class="rdesc">Les 14 signaux de détection et la constitution d'un dossier de preuves qui tient devant un modérateur.</p></div>
-      <div class="row rv"><div class="rnum">Ch. 03</div><h3>Niveau 1 — Le signalement</h3><p class="rdesc">La procédure Google exacte, l'outil de gestion des avis, la formulation en 4 blocs et les 3 erreurs qui tuent un dossier.</p></div>
-      <div class="row rv"><div class="rnum">Ch. 04</div><h3>Niveau 2 — L'appel</h3><p class="rdesc">Le recours interne, le support, et les deux canaux d'escalade que presque personne n'utilise.</p></div>
-      <div class="row rv"><div class="rnum">Ch. 05</div><h3>Niveau 3 — Le juridique</h3><p class="rdesc">Qualification, formulaire légal, recours DSA article 21, mise en demeure, DGCCRF, référé — et le calcul du coût.</p></div>
-      <div class="row rv"><div class="rnum">Ch. 06</div><h3>Les autres plateformes</h3><p class="rdesc">TripAdvisor, Trustpilot, Facebook, Pages Jaunes, Booking, Doctolib : les angles propres à chacune.</p></div>
-      <div class="row rv"><div class="rnum">Ch. 07</div><h3>L'avis qui restera</h3><p class="rdesc">La méthode R.A.R.E. pour transformer un avis négatif en argument de vente, et ce qu'il ne faut jamais écrire.</p></div>
-      <div class="row rv"><div class="rnum">Ch. 08</div><h3>Enterrer</h3><p class="rdesc">L'arithmétique du volume et la collecte conforme qui rend un mauvais avis statistiquement invisible.</p></div>
-      <div class="row rv"><div class="rnum">Ch. 09</div><h3>Ne plus jamais en reprendre</h3><p class="rdesc">Le système de prévention et de veille : intercepter l'insatisfaction avant qu'elle devienne publique.</p></div>
-      <div class="row rv"><div class="rnum">Annexes</div><h3>Les modèles prêts à l'emploi</h3><p class="rdesc">11 réponses publiques, 3 courriers juridiques, le tableau de suivi des signalements, la checklist des 30 premiers jours.</p></div>
+      <div class="row rv"><div class="rnum">Partie 1</div><h3>Faire le point</h3><p class="rdesc">Ce qu'Internet dit de vous aujourd'hui — l'audit en 45 minutes. Les sept territoires de votre présence et l'ordre à suivre selon votre métier.</p></div>
+      <div class="row rv"><div class="rnum">Partie 2</div><h3>Le socle</h3><p class="rdesc">Google Business Profile champ par champ. Le site : neuf blocs, vitesse, technique. Cohérence NAP, annuaires et données structurées.</p></div>
+      <div class="row rv"><div class="rnum">Partie 3</div><h3>Être trouvé</h3><p class="rdesc">Référencement local et ses trois critères. Contenu : les requêtes qui rapportent. Publicité : quand payer, combien, et les six façons de brûler son budget.</p></div>
+      <div class="row rv"><div class="rnum">Partie 4</div><h3>Être choisi</h3><p class="rdesc">Avis clients : collecter, répondre, faire retirer. Photos et vidéos qui vendent. Réseaux sociaux : en choisir un, et savoir si ça rapporte.</p></div>
+      <div class="row rv"><div class="rnum">Partie 5</div><h3>Garder la main</h3><p class="rdesc">La base clients et le RGPD. Réputation et gestion de crise en 48 heures. Sécurité des accès, récupération de fiche, usurpation.</p></div>
+      <div class="row rv"><div class="rnum">Partie 6</div><h3>Piloter</h3><p class="rdesc">Le tableau de bord en huit chiffres, les faux indicateurs à ignorer, et le plan 90 jours semaine par semaine.</p></div>
+      <div class="row rv"><div class="rnum">Annexes</div><h3>Les outils prêts à l'emploi</h3><p class="rdesc">12 modèles de messages, les checklists par plateforme, le tableau de bord mensuel à reproduire, et un glossaire de 40 termes sans jargon.</p></div>
     </div>
   </div>
 </section>
@@ -643,16 +632,16 @@ footer ul a:hover{color:var(--fg)}
       <div class="idx"><b>05</b> — Collection</div>
       <div>
         <h2 class="disp-lg scramble">Une gamme, pas un PDF isolé.</h2>
-        <p class="note">AvisReset publie une collection de guides sur l'e-réputation et la visibilité locale. Chaque acheteur est prévenu en avant-première des sorties suivantes.</p>
+        <p class="note">Le guide #01 couvre l'ensemble. Les suivants approfondissent chacun un territoire. Les acheteurs sont prévenus en avant-première de chaque sortie.</p>
       </div>
     </div>
 
     <div class="coll">
-      <div class="cc live rv"><span class="num">Guide #01</span><h3>Gérer les avis négatifs</h3><span class="tag on">disponible</span></div>
+      <div class="cc live rv"><span class="num">Guide #01</span><h3>Maîtriser sa présence sur Internet</h3><span class="tag on">disponible</span></div>
       <div class="cc rv"><span class="num">Guide #02</span><h3>Google Business Profile</h3><span class="tag">en_préparation</span></div>
-      <div class="cc rv"><span class="num">Guide #03</span><h3>Réputation locale</h3><span class="tag">en_préparation</span></div>
-      <div class="cc rv"><span class="num">Guide #04</span><h3>Répondre aux avis clients</h3><span class="tag">en_préparation</span></div>
-      <div class="cc rv"><span class="num">Guide #05</span><h3>SEO local</h3><span class="tag">en_préparation</span></div>
+      <div class="cc rv"><span class="num">Guide #03</span><h3>Avis clients et réputation</h3><span class="tag">en_préparation</span></div>
+      <div class="cc rv"><span class="num">Guide #04</span><h3>SEO local</h3><span class="tag">en_préparation</span></div>
+      <div class="cc rv"><span class="num">Guide #05</span><h3>Contenu et réseaux</h3><span class="tag">en_préparation</span></div>
     </div>
   </div>
 </section>
@@ -700,70 +689,99 @@ footer ul a:hover{color:var(--fg)}
 
     <div class="faq">
       <details class="rv" open>
-        <summary><span class="fnum">Q / 01</span><span class="q">Ce guide garantit-il la suppression de mes avis ?</span></summary>
+        <summary><span class="fnum">Q / 01</span><span class="q">Je suis débutant. C'est trop technique pour moi ?</span></summary>
         <div class="a"><span></span><div class="txt">
-          <p>Non, et personne ne peut le garantir honnêtement. Une plateforme ne supprime pas un avis parce qu'il est négatif — uniquement s'il enfreint une de ses règles ou la loi.</p>
-          <p>Ce que le guide apporte : identifier les avis qui relèvent réellement d'un motif de suppression, monter un dossier qui passe la modération, connaître tous les recours quand elle refuse, et neutraliser efficacement ceux qui resteront en ligne.</p>
+          <p>Non. Le guide est écrit sans jargon, et une annexe traduit les quarante termes qui reviennent partout. Chaque chapitre se lit en dix minutes et se termine par ce qu'il faut faire, concrètement.</p>
+          <p>Les rares passages techniques — les données structurées, par exemple — sont fournis prêts à copier, avec l'endroit exact où les coller.</p>
         </div></div>
       </details>
+
       <details class="rv">
-        <summary><span class="fnum">Q / 02</span><span class="q">Les méthodes décrites sont-elles légales ?</span></summary>
+        <summary><span class="fnum">Q / 02</span><span class="q">Combien de temps faut-il y consacrer ?</span></summary>
         <div class="a"><span></span><div class="txt">
-          <p>Oui, exclusivement. Le guide couvre le signalement pour infraction au règlement, les voies de recours, les procédures juridiques françaises et européennes, la réponse publique et la collecte d'avis conforme.</p>
-          <p>Il exclut explicitement l'achat de faux avis et toute manipulation : ce sont des pratiques commerciales trompeuses lourdement sanctionnées, qui exposent en plus votre fiche à une suppression pure et simple.</p>
+          <p>Douze à vingt heures étalées sur trois mois pour la mise en place, en suivant le plan du chapitre 16 — qui découpe le travail semaine par semaine avec le temps réel à prévoir.</p>
+          <p>Ensuite, trente à quarante-cinq minutes par semaine d'entretien. C'est le chiffre honnête, pas une promesse marketing.</p>
         </div></div>
       </details>
+
       <details class="rv">
-        <summary><span class="fnum">Q / 03</span><span class="q">Quel est le format et comment y accéder ?</span></summary>
+        <summary><span class="fnum">Q / 03</span><span class="q">Ça remplace une agence ?</span></summary>
         <div class="a"><span></span><div class="txt">
-          <p>Un PDF de 35 pages au format A4, lisible sur téléphone, tablette et ordinateur, et conçu pour être imprimé. Le lien de téléchargement est envoyé par e-mail immédiatement après le paiement.</p>
+          <p>Pour un commerce local, la majeure partie de ce qui compte est faisable soi-même et sans budget : le guide vous donne exactement quoi faire et dans quel ordre.</p>
+          <p>Si vous déléguez malgré tout, il sert alors à autre chose, et c'est peut-être encore plus utile : savoir quoi exiger, quoi vérifier, et repérer un prestataire qui ne vous rend pas de comptes. Le chapitre 14 explique notamment pourquoi tous vos comptes doivent être à votre nom dès le premier jour.</p>
         </div></div>
       </details>
+
       <details class="rv">
-        <summary><span class="fnum">Q / 04</span><span class="q">Quelles plateformes sont couvertes ?</span></summary>
+        <summary><span class="fnum">Q / 04</span><span class="q">Qu'est-ce qui est couvert, exactement ?</span></summary>
         <div class="a"><span></span><div class="txt">
-          <p>Google Business Profile en priorité — c'est là que se joue l'essentiel — puis TripAdvisor, Trustpilot, Facebook et Pages Jaunes, ainsi que les plateformes à transaction comme Booking, Airbnb et Doctolib, qui obéissent à une logique différente et offrent d'autres leviers.</p>
+          <p>Fiche Google Business Profile, site web, cohérence des informations et données structurées, référencement local, contenu, publicité en ligne, avis clients, photos et vidéo, réseaux sociaux, e-mail et base clients, réputation et gestion de crise, sécurité des accès et usurpation, RGPD, mesure et pilotage.</p>
+          <p>Seize chapitres, plus quatre annexes de modèles et de checklists.</p>
         </div></div>
       </details>
+
       <details class="rv">
-        <summary><span class="fnum">Q / 05</span><span class="q">Je suis une agence. Puis-je m'en servir pour mes clients ?</span></summary>
+        <summary><span class="fnum">Q / 05</span><span class="q">Les méthodes sont-elles légales ?</span></summary>
         <div class="a"><span></span><div class="txt">
-          <p>Oui, pour votre usage professionnel interne et pour les prestations que vous réalisez pour vos clients. La revente, la redistribution et la diffusion publique du fichier restent interdites. Pour une licence multi-collaborateurs, écrivez-nous.</p>
+          <p>Oui, exclusivement. Aucune technique de manipulation : ni achat d'avis, ni faux comptes, ni contournement des règles de référencement. Ce sont des pratiques commerciales trompeuses lourdement sanctionnées, qui font en plus supprimer vos comptes.</p>
+          <p>Le guide traite au contraire la conformité comme un sujet à part entière : consentement e-mail, droit à l'image, RGPD, recours DSA.</p>
         </div></div>
       </details>
+
       <details class="rv">
-        <summary><span class="fnum">Q / 06</span><span class="q">Y a-t-il des mises à jour ?</span></summary>
+        <summary><span class="fnum">Q / 06</span><span class="q">Quel est le format et comment y accéder ?</span></summary>
         <div class="a"><span></span><div class="txt">
-          <p>Oui, et elles sont incluses. Les interfaces et les règles des plateformes évoluent régulièrement : chaque nouvelle version est envoyée à l'adresse e-mail utilisée lors de l'achat.</p>
+          <p>Un PDF de 63 pages au format A4, lisible sur téléphone, tablette et ordinateur, et mis en page pour rester lisible imprimé. Le lien de téléchargement est envoyé par e-mail immédiatement après le paiement.</p>
         </div></div>
       </details>
+
       <details class="rv">
-        <summary><span class="fnum">Q / 07</span><span class="q">Puis-je être remboursé ?</span></summary>
+        <summary><span class="fnum">Q / 07</span><span class="q">Je suis une agence. Puis-je m'en servir pour mes clients ?</span></summary>
+        <div class="a"><span></span><div class="txt">
+          <p>Oui, pour votre usage professionnel interne et pour les prestations que vous réalisez. La revente, la redistribution et la diffusion publique du fichier restent interdites. Les modèles de messages en annexe sont, eux, librement adaptables. Pour une licence multi-collaborateurs, écrivez-nous.</p>
+        </div></div>
+      </details>
+
+      <details class="rv">
+        <summary><span class="fnum">Q / 08</span><span class="q">Y a-t-il des mises à jour ?</span></summary>
+        <div class="a"><span></span><div class="txt">
+          <p>Oui, incluses. Les interfaces et les règles évoluent régulièrement : chaque nouvelle version est envoyée à l'adresse e-mail utilisée lors de l'achat. Le guide est d'ailleurs écrit pour rester valable même quand les écrans changent — ce sont les principes qui sont expliqués, pas seulement les boutons.</p>
+        </div></div>
+      </details>
+
+      <details class="rv">
+        <summary><span class="fnum">Q / 09</span><span class="q">Puis-je être remboursé ?</span></summary>
         <div class="a"><span></span><div class="txt">
           <p>Il s'agit d'un contenu numérique fourni immédiatement : en validant votre commande, vous acceptez l'exécution immédiate et renoncez au droit de rétractation de 14 jours (article L221-28 du Code de la consommation).</p>
           <p>Cela dit, si le guide ne correspond pas du tout à ce que vous attendiez, écrivez-nous en expliquant pourquoi. Chaque demande est examinée.</p>
         </div></div>
       </details>
+
       <details class="rv">
-        <summary><span class="fnum">Q / 08</span><span class="q">Ce guide remplace-t-il un avocat ?</span></summary>
+        <summary><span class="fnum">Q / 10</span><span class="q">Ça garantit des résultats ?</span></summary>
         <div class="a"><span></span><div class="txt">
-          <p>Non. Le chapitre juridique est informatif : il vous permet de comprendre les qualifications, les délais de prescription et les recours possibles, et d'arriver préparé chez un professionnel. Il ne constitue pas un conseil juridique personnalisé.</p>
+          <p>Non, et méfiez-vous de qui l'affirme. Vos résultats dépendent de votre marché, de votre concurrence, de votre exécution et de décisions prises par des plateformes tierces.</p>
+          <p>Ce que le guide garantit, c'est la méthode : ce qu'il faut faire, dans quel ordre, avec quel temps, et comment mesurer si ça produit quelque chose. Le reste vous appartient.</p>
         </div></div>
       </details>
     </div>
   </div>
 </section>
 
-<!-- ══════════ OUTRO STICKY ══════════ -->
+<!-- ══════════ OUTRO ══════════ -->
 <section class="outro">
   <div class="outro-screen">
     <div class="rings" aria-hidden="true"><i></i><i></i><i></i></div>
     <div class="inner">
+      <div class="brand lg">
+        <svg><use href="#mark"/></svg>
+        <span class="wm">PRESYVA</span>
+      </div>
       <span class="mono">Guide #01 · 49,99 € · accès immédiat</span>
-      <h2 class="disp-lg">Reprenez le contrôle de <span class="grad shiny">votre réputation.</span></h2>
-      <p>35 pages, 9 chapitres, 14 modèles prêts à l'emploi. Le premier signalement bien construit se prépare en quarante minutes.</p>
+      <h2 class="disp-lg">Maîtrisez votre <span class="grad shiny">présence en ligne.</span></h2>
+      <p>63 pages, 16 chapitres, 12 modèles prêts à l'emploi. L'audit de départ prend trois heures — et vous saurez exactement où vous perdez des clients.</p>
       <div class="cta">
-        <!-- Remplacer par le lien de checkout Lemon Squeezy -->
+        <!-- Remplacer par le lien de checkout -->
         <a href="#" class="btn btn-solid magnet" data-checkout><span>Accéder au guide</span>
           <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
@@ -779,10 +797,10 @@ footer ul a:hover{color:var(--fg)}
     <div class="f-top">
       <div>
         <div class="brand">
-          <span class="brand-mark" aria-hidden="true">A</span>
-          <span class="brand-name">Avis<em>Reset</em></span>
+          <svg><use href="#mark"/></svg>
+          <span class="wm">PRESYVA</span>
         </div>
-        <p class="blurb">Guides pratiques d'e-réputation pour les professionnels. Comprendre, gérer et protéger votre image en ligne.</p>
+        <p class="blurb">Guides pratiques de présence en ligne pour les professionnels. Comprendre, gérer et protéger votre image sur Internet.</p>
       </div>
       <div>
         <h4>Boutique</h4>
@@ -799,16 +817,16 @@ footer ul a:hover{color:var(--fg)}
           <li><a href="mentions-legales.html">Mentions légales</a></li>
           <li><a href="cgv.html">CGV</a></li>
           <li><a href="confidentialite.html">Confidentialité</a></li>
-          <li><a href="mailto:contact@avisreset.com">contact@avisreset.com</a></li>
+          <li><a href="mailto:contact@presyva.com">contact@presyva.com</a></li>
         </ul>
       </div>
     </div>
 
-    <div class="f-word" aria-hidden="true">AvisReset</div>
+    <div class="f-word" aria-hidden="true">PRESYVA</div>
 
     <div class="f-bot">
-      <span>© 2026 AvisReset</span>
-      <span>Reprenez le contrôle de votre réputation</span>
+      <span>© 2026 PRESYVA</span>
+      <span>Maîtrisez votre présence en ligne</span>
     </div>
   </div>
 </footer>
@@ -819,23 +837,18 @@ footer ul a:hover{color:var(--fg)}
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const coarse = matchMedia('(pointer: coarse)').matches;
 
-/* ─────────── Aurora : bandes de dégradé en mouvement ───────────
-   Quatre blobs sur des trajectoires de Lissajous, floutés en CSS.
-   Coût quasi nul : 4 arcs par frame, DPR bridé à 1. */
+/* ─── Aurora ─── */
 if (!reduce) {
   const cv = document.getElementById('aurora');
   const ctx = cv.getContext('2d', {alpha:true});
   const BLOBS = [
     {c:[37,99,235],  r:.55, ax:.30, ay:.20, sx:.00021, sy:.00014, px:0,   py:1.7, a:.55},
-    {c:[24,199,200], r:.42, ax:.26, ay:.24, sx:.00017, sy:.00023, px:2.1, py:.4,  a:.34},
-    {c:[96,165,250], r:.36, ax:.22, ay:.17, sx:.00029, sy:.00019, px:4.2, py:2.9, a:.26},
-    {c:[21,94,239],  r:.50, ax:.18, ay:.26, sx:.00013, sy:.00027, px:1.2, py:5.1, a:.30}
+    {c:[34,211,238], r:.42, ax:.26, ay:.24, sx:.00017, sy:.00023, px:2.1, py:.4,  a:.30},
+    {c:[59,130,246], r:.36, ax:.22, ay:.17, sx:.00029, sy:.00019, px:4.2, py:2.9, a:.26},
+    {c:[30,64,175],  r:.50, ax:.18, ay:.26, sx:.00013, sy:.00027, px:1.2, py:5.1, a:.32}
   ];
   let W = 0, H = 0, raf = 0;
-  const size = () => {
-    W = cv.width  = Math.round(innerWidth  * .5);
-    H = cv.height = Math.round(innerHeight * .5);
-  };
+  const size = () => { W = cv.width = Math.round(innerWidth * .5); H = cv.height = Math.round(innerHeight * .5); };
   const draw = (t) => {
     ctx.clearRect(0, 0, W, H);
     ctx.globalCompositeOperation = 'lighter';
@@ -860,14 +873,13 @@ if (!reduce) {
   });
 }
 
-/* ─────────── Dot Field : grille de points réactive au curseur ─────────── */
+/* ─── Dot Field ─── */
 if (!reduce && !coarse) {
   const cv = document.getElementById('dots');
   const ctx = cv.getContext('2d');
   const hero = document.querySelector('.hero');
   const GAP = 30, R = 150;
   let W = 0, H = 0, dpr = 1, pts = [], mx = -9999, my = -9999, raf = 0, live = true;
-
   const build = () => {
     dpr = Math.min(devicePixelRatio || 1, 1.5);
     const b = hero.getBoundingClientRect();
@@ -876,27 +888,18 @@ if (!reduce && !coarse) {
     cv.style.width = W + 'px'; cv.style.height = H + 'px';
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     pts = [];
-    for (let y = GAP; y < H; y += GAP)
-      for (let x = GAP; x < W; x += GAP) pts.push({x, y});
+    for (let y = GAP; y < H; y += GAP) for (let x = GAP; x < W; x += GAP) pts.push({x, y});
   };
   const draw = () => {
     ctx.clearRect(0, 0, W, H);
     for (const p of pts) {
-      const dx = p.x - mx, dy = p.y - my;
-      const d2 = dx*dx + dy*dy;
+      const dx = p.x - mx, dy = p.y - my, d2 = dx*dx + dy*dy;
       let s = 1, al = .1, near = 0;
-      if (d2 < R*R) {
-        near = 1 - Math.sqrt(d2) / R;
-        s  = 1 + near * 2.1;
-        al = .1 + near * .55;
-      }
-      const off = near * 5;
-      const len = Math.max(Math.hypot(dx, dy), .001);
+      if (d2 < R*R) { near = 1 - Math.sqrt(d2) / R; s = 1 + near * 2.1; al = .1 + near * .55; }
+      const off = near * 5, len = Math.max(Math.hypot(dx, dy), .001);
       ctx.beginPath();
       ctx.arc(p.x + (dx/len) * off, p.y + (dy/len) * off, s, 0, 6.2832);
-      ctx.fillStyle = near > .35
-        ? `rgba(24,199,200,${al})`
-        : `rgba(255,255,255,${al})`;
+      ctx.fillStyle = near > .35 ? `rgba(34,211,238,${al})` : `rgba(255,255,255,${al})`;
       ctx.fill();
     }
     raf = requestAnimationFrame(draw);
@@ -908,14 +911,13 @@ if (!reduce && !coarse) {
     mx = e.clientX - b.left; my = e.clientY - b.top;
   }, {passive:true});
   raf = requestAnimationFrame(draw);
-  // on coupe la boucle dès que le hero est hors champ
   new IntersectionObserver(([e]) => {
     if (e.isIntersecting && !live) { live = true; raf = requestAnimationFrame(draw); }
     else if (!e.isIntersecting && live) { live = false; cancelAnimationFrame(raf); }
   }).observe(hero);
 }
 
-/* ─────────── Halo curseur ─────────── */
+/* ─── Halo curseur ─── */
 if (!reduce && !coarse) {
   const g = document.getElementById('glow');
   let tx = innerWidth/2, ty = innerHeight/2, cx = tx, cy = ty, on = false;
@@ -930,27 +932,22 @@ if (!reduce && !coarse) {
   })();
 }
 
-/* ─────────── Boutons magnétiques ─────────── */
+/* ─── Boutons magnétiques ─── */
 if (!reduce && !coarse) {
   document.querySelectorAll('.magnet').forEach(el => {
     el.addEventListener('mousemove', (e) => {
       const b = el.getBoundingClientRect();
-      const x = (e.clientX - b.left - b.width/2)  * .28;
-      const y = (e.clientY - b.top  - b.height/2) * .38;
-      el.style.transform = `translate(${x}px,${y}px)`;
+      el.style.transform = `translate(${(e.clientX - b.left - b.width/2) * .28}px,${(e.clientY - b.top - b.height/2) * .38}px)`;
     });
     el.addEventListener('mouseleave', () => { el.style.transform = ''; });
   });
 }
 
-/* ─────────── Scramble : les titres se décodent à l'entrée ─────────── */
+/* ─── Scramble ─── */
 const CH = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#@%&/*';
 function scramble(el) {
-  const final = el.textContent;
-  const n = final.length;
-  // le texte réel reste exposé aux lecteurs d'écran pendant le décodage
+  const final = el.textContent, n = final.length;
   el.setAttribute('aria-label', final);
-  // verrouillage de gauche à droite, ~0,6 s quelle que soit la longueur
   const per = Math.min(0.35, 24 / Math.max(n, 1));
   const total = 14 + n * per;
   let frame = 0;
@@ -968,7 +965,7 @@ function scramble(el) {
   tick();
 }
 
-/* ─────────── Apparition + déclenchement du scramble ─────────── */
+/* ─── Apparition ─── */
 const io = new IntersectionObserver((entries) => {
   entries.forEach((e, i) => {
     if (!e.isIntersecting) return;
@@ -983,7 +980,7 @@ const io = new IntersectionObserver((entries) => {
 }, {rootMargin:'0px 0px -10% 0px', threshold:0.06});
 document.querySelectorAll('.rv').forEach(el => io.observe(el));
 
-/* ─────────── Barre de progression + header ─────────── */
+/* ─── Progression + header ─── */
 const prog = document.getElementById('prog'), hdr = document.getElementById('hdr');
 let ticking = false;
 const frame = () => {
@@ -995,13 +992,13 @@ const frame = () => {
 addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }, {passive:true});
 frame();
 
-/* ─────────── FAQ : une seule réponse ouverte ─────────── */
+/* ─── FAQ ─── */
 const dets = document.querySelectorAll('.faq details');
 dets.forEach(d => d.addEventListener('toggle', () => {
   if (d.open) dets.forEach(o => { if (o !== d) o.open = false; });
 }));
 
-/* ─────────── Ancres ─────────── */
+/* ─── Ancres ─── */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', (e) => {
     const t = document.querySelector(a.getAttribute('href'));
@@ -1011,12 +1008,12 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
-/* ─────────── Garde-fou : checkout non configuré ─────────── */
+/* ─── Garde-fou checkout ─── */
 document.querySelectorAll('[data-checkout]').forEach(a => {
   a.addEventListener('click', (e) => {
     if (a.getAttribute('href') === '#') {
       e.preventDefault();
-      alert("Lien de paiement pas encore configuré.\n\nRemplacez href=\"#\" par l'URL de checkout Lemon Squeezy sur les liens data-checkout.");
+      alert("Lien de paiement pas encore configuré.\n\nRemplacez href=\"#\" par l'URL de checkout sur les liens data-checkout.");
     }
   });
 });
